@@ -368,6 +368,14 @@ def test_audit_import_goes_to_head_for_approval(client):
     assert analytics.overview("mgmt", 2025)["raw"] == before
 
 
+def test_importing_the_same_report_adds_no_untitled_rows():
+    from app import audit
+
+    result = audit.import_rows(ROOT / "static" / "samples" / "5_audit_uchin_esep.xlsx", position("resp"))
+    assert result["added"] == 0
+    assert not any(services.display_title(r) == "(без названия)" for r in store.records(unit="mgmt", year=2025))
+
+
 def test_agent_counts_match_analytics(client):
     head = agent.stats_for("overview", position("head"))
     raw = analytics.overview("mgmt", 2025)["raw"]

@@ -111,7 +111,7 @@ def indicators(unit: str = "mgmt", year: int = 2025) -> list[dict]:
             for a in r.get("author_ids", []):
                 if all_persons.get(a, {}).get("role") == "teacher":
                     teachers_ws.add(a)
-    sdg_count = sum(1 for r in pps if r["attrs"].get("sdg") or sdg_tags(r["fields"].get("title", "")))
+    reported = lambda row: columns.get(str(row), {}).get("reported")  # noqa: E731
     share = lambda a, b: round(a / b, 3) if b else None  # noqa: E731
     defs = [
         (3, "Общее количество наград", awards, "auto"),
@@ -134,10 +134,10 @@ def indicators(unit: str = "mgmt", year: int = 2025) -> list[dict]:
         (15, "КОКСНВО МНВО РК на казахском языке", len(kk_k), "auto"),
         (16, "не КОКСНВО МНВО РК", len(non_koksnvo), "auto"),
         (17, "не КОКСНВО МНВО РК на казахском языке", len(kk_n), "auto"),
-        (18, "c представителями казахстанских ОВПО", _tagged(pps, "coauthor_kz"), "auto"),
-        (19, "с представителями зарубежных ОВПО, научных организаций", _tagged(pps, "coauthor_foreign"), "auto"),
-        (20, "с представителями бизнес-партнерств, промышленности", _tagged(pps, "coauthor_business"), "auto"),
-        (21, "по ЦУР", sdg_count, "auto"),
+        (18, "c представителями казахстанских ОВПО", _tagged(pps, "coauthor_kz", reported(18)), "auto"),
+        (19, "с представителями зарубежных ОВПО, научных организаций", _tagged(pps, "coauthor_foreign", reported(19)), "auto"),
+        (20, "с представителями бизнес-партнерств, промышленности", _tagged(pps, "coauthor_business", reported(20)), "auto"),
+        (21, "по ЦУР", _tagged(pps, "sdg", reported(21)), "auto"),
         (22, "Доля ППС, публикующих статьи в журналах, входящих в Web of Science и в Scopus (в %)", share(len(teachers_ws), staff), "staff"),
         (23, "Общее количество публикаций обучающихся:", ov.get("learner_pubs", 0), "auto"),
         (24, "из них публикации студентов:", ov.get("student_pubs", 0), "auto"),
@@ -152,7 +152,7 @@ def indicators(unit: str = "mgmt", year: int = 2025) -> list[dict]:
     out = []
     for row, label, value, source in defs:
         col = columns.get(str(row), {})
-        out.append({"row": row, "label": label, "value": value, "source": source,
+        out.append({"row": row, "label": label, "value": value, "source": source, "note": manual.get("funding_note", "") if row == 31 else "",
                     "prev": col.get("prev", ""), "reported": col.get("reported", "") if year == 2025 else ""})
     return out
 
@@ -185,11 +185,13 @@ def overview(unit: str = "mgmt", year: int = 2025) -> dict:
             "in_press": sum(1 for r in rows if r.get("in_press"))}
 
 
-def _tagged(rows: list[dict], key: str) -> int | None:
-    """Бірлескен автор түрін агент мақаладағы аффилиациядан белгілейді. Белгі әлі жоқ болса, сан шығарылмайды."""
-    if not any(key in r.get("attrs", {}) for r in rows):
+def _tagged(rows: list[dict], key: str, reported=None) -> int | None:
+    """Белгіні агент мақаладан қояды. Белгі әлі жоқ болса, сан шығарылмайды, ал бұрынғы белгісіз жолдардың саны нысандағы мәннен алынады."""
+    tagged = [r for r in rows if key in r.get("attrs", {})]
+    if not tagged:
         return None
-    return sum(1 for r in rows if r["attrs"].get(key))
+    count = sum(1 for r in tagged if r["attrs"].get(key))
+    return count if len(tagged) == len(rows) else count + int(_num(reported) or 0)
 
 
 def _num(value) -> float | None:

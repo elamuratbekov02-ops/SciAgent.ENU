@@ -101,20 +101,32 @@ def run_audit(path: str | Path) -> dict:
     }
 
 
+UNTITLED = "(без названия)"
+
+
+def _author_key(section: str, authors: str | None) -> str:
+    return f"{section}|{norm_title(authors or '')}"
+
+
 def import_rows(path: str | Path, position: dict) -> dict:
     """Базада жоқ жолдарды ғана көшіреді. Байланыс мәліметі алынбайды, ал жолдар есепке меңгеруші келіскен соң кіреді."""
     parsed = read_blocks(path)
     rows = _rows_from_parsed(parsed)
-    existing = {norm_title(services.display_title(r)) for r in store.records(include_merged=True)}
+    known = store.records(include_merged=True)
+    existing = {norm_title(services.display_title(r)) for r in known} | {_author_key(s, r["fields"].get("authors_text")) for r in known for s in r.get("sections", [])}
     added, skipped = 0, 0
     for r in rows:
-        title = norm_title(services.display_title(r))
-        if not title or title in existing:
+        # Марапат жолында атау жоқ, сондықтан ол бөлім мен автор бойынша салыстырылады.
+        named = services.display_title(r) != UNTITLED
+        title = norm_title(services.display_title(r)) if named else _author_key(r["section"], r["raw_authors"])
+        if not title or title in existing or (not named and not r["raw_authors"]):
             skipped += 1
             continue
         existing.add(title)
         fields = {k: v for k, v in r["fields"].items() if k not in ("phone", "email")}
         fields["authors_text"] = r["raw_authors"]
+        if r["type"] == "award":
+            fields.setdefault("award_name", "Награда")
         year = 2025
         m = re.search(r"20\d{2}", fields.get("year", "") or "")
         if m:

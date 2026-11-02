@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import base64
+import io
 import json
 import os
 import re
@@ -14,6 +15,7 @@ os.environ["SCIAGENT_AI"] = "off"
 
 import pytest  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402
+from openpyxl import load_workbook  # noqa: E402
 
 from app import analytics, store  # noqa: E402
 from app.main import app  # noqa: E402
@@ -165,3 +167,22 @@ def test_health_check_works_behind_demo_password_and_shows_no_data(client, monke
     assert res.json() == {"status": "ok"}
     assert client.get("/").status_code == 401
     assert client.get("/healthz/").status_code == 401
+
+
+def test_keyword_guess_does_not_replace_the_reported_sdg_count_and_note_stays(client):
+    row = next(i for i in analytics.indicators("mgmt", 2025) if i["row"] == 21)
+    assert row["value"] is None and row["reported"] == "21"
+    sheet = load_workbook(io.BytesIO(client.get("/api/export/f605/mgmt/2025?pos=resp").content))["Анализ НИР факультета"]
+    assert sheet["C21"].value == 21
+    assert sheet["D31"].value == "39462,957 постдок"
+
+
+def test_new_tagged_record_adds_to_the_reported_count_instead_of_replacing_it(client):
+    body = {"type": "article", "attrs": {"index": "koksnvo", "sdg": ["4"], "coauthor_kz": True, "coauthor_foreign": False},
+            "fields": {"title": "[Пример] Новая статья с отметками", "source": "Вестник (пример)", "year": "2025", "issue": "1", "pages": "1-9", "issn": "2345-6787"}}
+    rid = client.post("/api/records", json=body, headers=H("teacher")).json()["record"]["id"]
+    client.post(f"/api/records/{rid}/submit", json={}, headers=H("teacher"))
+    client.post(f"/api/records/{rid}/approve", json={}, headers=H("head"))
+    rows = {i["row"]: i for i in analytics.indicators("mgmt", 2025)}
+    assert rows[21]["value"] == 22 and rows[18]["value"] == 30 and rows[19]["value"] == 5
+    assert rows[20]["value"] is None

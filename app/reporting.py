@@ -294,6 +294,8 @@ def _fill_analysis(ws, snapshot: dict) -> None:
         ws[f"B{row}"] = _maybe_number(ind.get("prev"))
         # Жазбалардан есептелмейтін көрсеткіш үшін нысандағы мән қалады.
         ws[f"C{row}"] = _indicator_value(ind["value"] if ind["value"] is not None else _maybe_number(ind.get("reported")))
+        if ind.get("note"):
+            ws[f"D{row}"] = ind["note"]
     signers = store.kv_get("signers", {}) or {}
     for row in range(1, ws.max_row + 1):
         label = ws[f"A{row}"].value

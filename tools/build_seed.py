@@ -372,7 +372,7 @@ def main(path: str) -> None:
         "school_facts": public["school"]["facts"],
         "signers": {"responsible": resp_name, "head": head_name, "director": ""},
         "plan": {"scopus": 15, "wos": 2, "koksnvo": 30, "monograph": 6, "learner_pubs": 80, "prizes": 25},
-        "manual_indicators": {"degree_share": 0.823, "foreign_scholar_share": 0.13, "funding": 55509.47, "staff_count": 23},
+        "manual_indicators": {"degree_share": 0.823, "foreign_scholar_share": 0.13, "funding": 55509.47, "funding_note": "39462,957 постдок", "staff_count": 23},
         "journal_watchlist": [
             {"issn": "1111-1117", "name": "International Journal of Example Studies", "reason": "Исключён из Scopus (пример)"},
             {"issn": "2222-2224", "name": "Global Review of Everything", "reason": "В списке сомнительных журналов (пример)"},
