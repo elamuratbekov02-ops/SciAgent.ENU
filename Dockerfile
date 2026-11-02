@@ -5,7 +5,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app app
 COPY static static
 COPY data/seed.json data/form_schema.json data/f605_template.xlsx data/f605_layout.json data/
-ENV SCIAGENT_DB=/srv/storage/sciagent.db SCIAGENT_UPLOADS=/srv/storage/uploads
+ENV SCIAGENT_DB=/srv/storage/sciagent.db SCIAGENT_UPLOADS=/srv/storage/uploads TZ=Asia/Almaty PYTHONUNBUFFERED=1
 RUN useradd -m app && mkdir -p /srv/storage && chown -R app /srv/storage
 USER app
 EXPOSE 8605

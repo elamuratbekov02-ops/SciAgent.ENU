@@ -50,7 +50,7 @@ MANAGERS = ("responsible", "head", "director", "science")
 async def demo_password(request: Request, call_next):
     """Демода логин жоқ. Сілтеме интернетке шыққанда SCIAGENT_DEMO_PASSWORD кіруді шектейді."""
     secret = os.environ.get("SCIAGENT_DEMO_PASSWORD")
-    if secret:
+    if secret and request.url.path != "/healthz":
         supplied = ""
         header = request.headers.get("authorization", "")
         if header.lower().startswith("basic "):
@@ -95,6 +95,12 @@ def card(rec: dict, position: dict, persons: dict) -> dict:
             "authors": names, "sections": rec.get("sections", []), "status": rec.get("status"), "confirmed": rec.get("confirmed", False),
             "in_press": rec.get("in_press", False), "source": rec.get("source"), "source_text": masked["fields"].get("source", ""), "unit": rec["unit"],
             "index": rec["attrs"].get("index"), "has_evidence": bool(rec.get("evidence")), "stage": services.stage_text(rec)}
+
+
+@app.get("/healthz", include_in_schema=False)
+def healthz():
+    """Хостинг тексеретін бет: дерек ашпайды, сондықтан құпия сөзсіз жауап береді."""
+    return {"status": "ok"}
 
 
 @app.get("/api/bootstrap")

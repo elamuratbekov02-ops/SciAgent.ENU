@@ -156,3 +156,12 @@ def test_demo_password_blocks_access_when_set(client, monkeypatch):
     assert client.get("/api/bootstrap", headers={"Authorization": f"Basic {token}"}).status_code == 200
     bad = base64.b64encode(b"demo:wrong").decode()
     assert client.get("/api/bootstrap", headers={"Authorization": f"Basic {bad}"}).status_code == 401
+
+
+def test_health_check_works_behind_demo_password_and_shows_no_data(client, monkeypatch):
+    monkeypatch.setenv("SCIAGENT_DEMO_PASSWORD", "тест-пароль")
+    res = client.get("/healthz")
+    assert res.status_code == 200
+    assert res.json() == {"status": "ok"}
+    assert client.get("/").status_code == 401
+    assert client.get("/healthz/").status_code == 401
