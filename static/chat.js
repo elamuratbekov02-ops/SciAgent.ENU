@@ -28,6 +28,7 @@ const DraftCard = {
       ai.value.checks[m.key] = 'crossref';
       ai.value.mismatches = mismatches.value.filter((x) => x.key !== m.key);
     };
+    const isWork = computed(() => S.boot.work_record_types.includes(p.d.record.type));
     const confirm = async (send) => {
       if (p.d.missing.length) { edit(); return; }
       const r = await api('/api/records', { method: 'POST', body: { ...p.d.payload, source: 'chat', allow_missing: true } });
@@ -38,13 +39,13 @@ const DraftCard = {
         p.d.saved = (await sendForApproval(r.record.id)) ? 'sent' : 'saved';
       } else {
         p.d.saved = 'saved';
-        toast('Черновик сохранён в разделе «Мои результаты»');
+        toast(isWork.value ? 'Сохранено на странице «Научные работы»' : 'Черновик сохранён в разделе «Мои результаты»');
       }
       bump();
       emit('saved');
     };
     const edit = () => { const x = p.d.payload; S.newRecord = { type: x.type, fields: x.fields, attrs: x.attrs, authors: x.authors, evidence: x.evidence, ai: x.ai }; };
-    return { type, label, keys, dot, title, quote, mismatches, useCrossref, confirm, edit };
+    return { type, label, keys, dot, title, quote, mismatches, useCrossref, confirm, edit, isWork };
   },
   template: `<div class="draft">
     <div class="draft-head"><b>{{ type.label }}</b><span v-for="s in d.record.sections" :key="s" class="section-badge">{{ s }}</span></div>
@@ -53,6 +54,7 @@ const DraftCard = {
       <span class="conf" :class="dot(k)" :title="title(k)" :aria-label="title(k)"></span></div>
     <div v-if="d.authors.length" class="small draft-line"><span class="muted">Сопоставленные авторы:</span> {{ d.authors.map(a => a.display).join(', ') }}</div>
     <div v-if="d.external.length" class="small draft-line"><span class="muted">Нет в справочнике:</span> {{ d.external.join(', ') }}</div>
+    <div v-if="isWork && !d.saved" class="small muted draft-line"><i class="pi pi-file"></i> Сохранится на странице «Научные работы»</div>
     <div v-if="d.duplicate" class="small lv-warn draft-line"><i class="pi pi-clone"></i> Уже есть в базе, повторно не вводится</div>
     <div v-if="d.missing.length" class="small lv-warn draft-line">Не хватает: {{ d.missing.map(x => x.label).join(', ') }}</div>
     <div v-for="iss in d.issues" :key="iss.code" class="small draft-line" :class="'lv-' + iss.level">{{ iss.text }}</div>
@@ -62,7 +64,7 @@ const DraftCard = {
       <button class="btn sm primary" @click="confirm(true)"><i class="pi" :class="d.duplicate ? 'pi-check' : 'pi-send'"></i> {{ d.missing.length ? 'Дополнить' : d.duplicate ? 'Добавить к записи' : 'Сохранить и отправить' }}</button>
       <button v-if="!d.duplicate && !d.missing.length" class="btn sm" @click="confirm(false)">Черновик</button>
       <button class="btn sm" @click="edit">Изменить</button></div>
-    <div v-else class="small draft-done"><i class="pi pi-check-circle"></i> {{ { merged: 'Добавлено к существующей записи', claimed: 'Запись уже есть, заявка на соавторство передана ответственному', sent: 'Отправлено на согласование', saved: 'Сохранено в «Мои результаты»' }[d.saved] }}</div>
+    <div v-else class="small draft-done"><i class="pi pi-check-circle"></i> {{ { merged: 'Добавлено к существующей записи', claimed: 'Запись уже есть, заявка на соавторство передана ответственному', sent: 'Отправлено на согласование', saved: isWork ? 'Сохранено в «Научные работы»' : 'Сохранено в «Мои результаты»' }[d.saved] }}</div>
   </div>`,
 };
 

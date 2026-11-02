@@ -56,33 +56,86 @@ const SideItem = {
   </li>`,
 };
 
-/* «Научные работы»: Smart.ENU-дағы бет, деректері осы базадан. */
+/* «Добавить научную работу»: Smart.ENU-дағы терезе, алдымен түр таңдалады. */
+const WorkForm = {
+  emits: ['close'],
+  setup(_, { emit }) {
+    const kind = ref('');
+    const fields = reactive({});
+    const saving = ref(false);
+    const spec = computed(() => (kind.value ? S.boot.work_types[kind.value] : null));
+    const ready = computed(() => !!spec.value && spec.value.fields.filter((f) => f.required).every((f) => String(fields[f.key] || '').trim()));
+    const save = async () => {
+      saving.value = true;
+      try {
+        const r = await api('/api/works', { method: 'POST', body: { work_type: kind.value, fields: { ...fields } } });
+        toast(r.claimed ? 'Такая работа уже есть. Ответственный проверит и добавит вас соавтором' : r.merged ? 'Такая работа уже есть в списке' : 'Работа сохранена');
+        emit('close');
+        bump();
+      } finally { saving.value = false; }
+    };
+    return { S, kind, fields, spec, ready, saving, save };
+  },
+  template: `<div class="overlay" @click.self="$emit('close')"><div class="modal narrow">
+    <div class="drawer-head"><h2>Добавить научную работу</h2><span class="spacer"></span><button class="icon-btn" aria-label="Закрыть" @click="$emit('close')"><i class="pi pi-times"></i></button></div>
+    <div class="drawer-body">
+      <label class="f">Тип научной работы<select class="inp" v-model="kind"><option value="" disabled></option><option v-for="(t,k) in S.boot.work_types" :key="k" :value="k">{{ t.label }}</option></select></label>
+      <div v-if="spec" class="form-grid" style="margin-top:12px"><label v-for="f in spec.fields" :key="f.key" class="f" :class="{wide: f.key === 'title' || f.key === 'source'}">{{ f.label }}<span v-if="f.required" class="req"> *</span><input class="inp" v-model="fields[f.key]"></label></div>
+      <div v-if="spec" style="margin-top:14px;display:flex;justify-content:flex-end"><button class="btn primary" :disabled="!ready || saving" @click="save">Сохранить</button></div>
+    </div></div></div>`,
+};
+
+/* «Научные работы»: Smart.ENU-дағы бет. Жарияланым осы жерге енгізіледі, модуль оны осы тізімнен алады. */
 const WorksPage = {
-  components: { Tag },
+  components: { Tag, WorkForm },
   setup() {
-    const { data } = useLoad(() => api('/api/records?mine=true'));
+    const mine = ref(true);
+    const { data, load } = useLoad(() => api('/api/works?mine=' + mine.value));
+    watch(mine, load);
     const authorName = computed(() => S.boot.person.name || S.boot.position.label.split(' · ')[0]);
-    const openChat = () => { S.chatOpen = true; };
-    const toModule = () => { S.page = 'module'; S.view = 'records'; };
-    return { S, data, authorName, dl, openChat, toModule };
+    const addOpen = ref(false);
+    const formOpen = ref(false);
+    const page = ref(0);
+    const size = ref(10);
+    watch([data, size], () => { page.value = 0; });
+    const pages = computed(() => (data.value ? Math.max(1, Math.ceil(data.value.items.length / size.value)) : 1));
+    const rows = computed(() => (data.value ? data.value.items.slice(page.value * size.value, (page.value + 1) * size.value) : []));
+    const first = computed(() => (rows.value.length ? page.value * size.value + 1 : 0));
+    const last = computed(() => page.value * size.value + rows.value.length);
+    const importFrom = async (name) => {
+      addOpen.value = false;
+      const r = await api(`/api/integrations/${name}/import`, { method: 'POST' });
+      toast(r.text);
+      bump();
+    };
+    const go = (n) => { page.value = Math.min(pages.value - 1, Math.max(0, n)); };
+    return { S, data, mine, authorName, addOpen, formOpen, page, size, pages, rows, first, last, importFrom, go, dl };
   },
   template: `<div>
     <div class="head-row"><i class="fa-solid fa-arrow-left back"></i><h3>Научные работы</h3></div>
     <div class="s-toolbar">
       <button class="s-btn off"><i class="pi pi-map"></i> Карта</button>
-      <button class="s-btn" @click="openChat">Добавить публикацию <i class="pi pi-angle-down"></i></button>
+      <div class="dropdown"><button class="s-btn" @click="addOpen = !addOpen">Добавить научную работу <i class="pi pi-angle-down"></i></button>
+        <div class="menu" v-if="addOpen" @mouseleave="addOpen = false">
+          <button @click="addOpen = false; formOpen = true">Добавить новую</button>
+          <button @click="importFrom('platonus')">Platonus</button>
+          <button @click="importFrom('scopus')">Scopus</button>
+        </div></div>
       <button class="s-btn" @click="dl('/api/export/person/' + S.boot.position.person)"><i class="fa-solid fa-print"></i> Список научных работ</button>
       <button class="s-btn off">КОКСНВО <i class="pi pi-angle-down"></i></button>
       <span class="spacer"></span>
       <button class="s-btn off filter-btn" aria-label="Фильтр"><i class="pi pi-filter-fill"></i><span class="filter-dot"></span></button>
     </div>
-    <div class="s-chips"><span class="s-chip">Автор: {{ authorName }} <i class="pi pi-times-circle"></i></span><button class="s-clear"><i class="pi pi-times"></i> Очистить</button></div>
+    <div class="s-chips" v-if="mine"><span class="s-chip">Автор: {{ authorName }} <i class="pi pi-times-circle" style="cursor:pointer" @click="mine = false"></i></span><button class="s-clear" style="cursor:pointer" @click="mine = false"><i class="pi pi-times"></i> Очистить</button></div>
+    <div class="s-chips" v-else><button class="s-clear" style="cursor:pointer" @click="mine = true"><i class="pi pi-user"></i> Только мои</button></div>
     <div class="card s-table" v-if="data"><div class="table-wrap"><table>
       <thead><tr><th style="width:36%"><i class="pi pi-align-left"></i> Название публикации</th><th><i class="pi pi-file"></i> Тип публикации</th><th><i class="pi pi-user"></i> Автор</th><th><i class="pi pi-calendar"></i> Год</th><th><i class="pi pi-tag"></i> Статус</th><th><i class="pi pi-cog"></i> Действия</th></tr></thead>
-      <tbody><tr v-for="r in data.items" :key="r.id"><td><button class="link" @click="S.drawerId = r.id">{{ r.title }}</button></td><td>{{ r.index ? S.boot.labels.index[r.index] : r.type_label }}</td><td>{{ authorName }}</td><td>{{ r.year }}</td><td><Tag :status="r.status"/></td><td></td></tr></tbody>
+      <tbody><tr v-for="r in rows" :key="r.id"><td><button class="link" @click="S.drawerId = r.id">{{ r.title }}</button></td><td>{{ r.work_type_label }}</td><td>{{ mine ? authorName : r.authors.slice(0, 2).join(', ') }}</td><td>{{ r.year }}</td><td><Tag :status="r.status"/></td><td></td></tr></tbody>
     </table></div>
-    <div v-if="!data.items.length" class="empty">Записей нет.</div>
-    <div class="s-pager"><i class="pi pi-angle-double-left"></i><i class="pi pi-angle-left"></i><span class="cur">1</span><i class="pi pi-angle-right"></i><i class="pi pi-angle-double-right"></i><span class="muted">Показаны записи с 1 по {{ data.total }} из {{ data.total }}</span></div></div>
+    <div v-if="!rows.length" class="empty">Записей нет.</div>
+    <div class="s-pager"><i class="pi pi-angle-double-left" style="cursor:pointer" @click="go(0)"></i><i class="pi pi-angle-left" style="cursor:pointer" @click="go(page - 1)"></i><span class="cur">{{ page + 1 }}</span><i class="pi pi-angle-right" style="cursor:pointer" @click="go(page + 1)"></i><i class="pi pi-angle-double-right" style="cursor:pointer" @click="go(pages - 1)"></i><span class="muted">Показаны записи с {{ first }} по {{ last }} из {{ data.total }}</span>
+      <select class="inp" style="width:auto;margin:0" v-model.number="size"><option :value="10">10</option><option :value="25">25</option><option :value="50">50</option></select></div></div>
+    <WorkForm v-if="formOpen" @close="formOpen = false"/>
   </div>`,
 };
 
@@ -164,15 +217,15 @@ const App = {
     watch(() => S.view, () => { S.page = 'module'; });
     watch(() => S.refresh, boot);
     const setPos = async (id) => {
-      // Бет алдымен жабылады: әйтпесе ескі рөлдің беті жаңа рөлмен сұраныс жіберіп, жалған 403 шығарады.
-      S.boot = null;
-      S.pos = id;
-      store.set('sa_pos', id);
       S.posOpen = false;
       S.userOpen = false;
+      // Жаңа рөлдің деректері алдымен келеді: бет бірден ауысады, ескі рөлдің беті жаңа рөлмен сұраныс жібермейді.
+      const next = await (await fetch('/api/bootstrap', { headers: { 'X-Position': id } })).json();
+      S.pos = id;
+      store.set('sa_pos', id);
+      S.boot = next;
       S.page = 'module';
       S.view = 'home';
-      await boot();
       bump();
     };
     const who = computed(() => {

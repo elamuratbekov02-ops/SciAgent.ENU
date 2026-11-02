@@ -17,7 +17,7 @@ from fastapi.responses import FileResponse, JSONResponse, Response, StreamingRes
 from fastapi.staticfiles import StaticFiles
 
 from . import agent, analytics, audit, integrations, reporting, services, store, validators
-from .catalog import AWARD_SUBTYPES, INDEX_LABELS, LANGUAGE_LABELS, PLACE_LABELS, REGION_LABELS, ROLE_LABELS, TYPES, display_title
+from .catalog import AWARD_SUBTYPES, INDEX_LABELS, LANGUAGE_LABELS, PLACE_LABELS, REGION_LABELS, ROLE_LABELS, TYPES, WORK_RECORD_TYPES, WORK_TYPES, display_title, work_form, work_type_label, work_type_of
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -113,6 +113,7 @@ def bootstrap(x_position: str | None = Header(None)):
     return {
         "position": position, "person": {"name": shown_name, "role": me.get("role"), "group": me.get("group") if shown_name else ""},
         "positions": store.kv_get("positions", []), "types": TYPES,
+        "work_types": {k: work_form(k) for k in WORK_TYPES}, "work_record_types": WORK_RECORD_TYPES,
         "labels": {"index": INDEX_LABELS, "place": PLACE_LABELS, "region": REGION_LABELS, "language": LANGUAGE_LABELS, "subtype": AWARD_SUBTYPES, "role": ROLE_LABELS},
         "ai": {"available": agent.ai_available(), "model": agent.MODEL if agent.ai_available() else None},
         "unread": sum(1 for n in store.notifications(position) if not n["read"]),
@@ -157,6 +158,33 @@ def home(x_position: str | None = Header(None)):
         n = sum(g["count"] for g in data["groups"])
         tasks.append({"icon": "fa-user-graduate", "title": "Мои обучающиеся", "text": "Их публикации и призовые места в одном месте", "count": n, "link": "supervision"})
     return {"tasks": tasks, "notifications": store.notifications(position, 6)}
+
+
+@app.get("/api/works")
+def list_works(mine: bool = True, x_position: str | None = Header(None)):
+    """Smart.ENU «Научные работы»: жарияланымның бірыңғай тізімі. Модуль жазбаны осы тізімнен алады."""
+    position = position_of(x_position)
+    persons = store.persons()
+    rows = [r for r in services.visible_records(position, mine_only=mine, with_works=True) if work_type_of(r)]
+    rows.sort(key=lambda r: (-r["year"], display_title(r)))
+    items = [{"id": r["id"], "title": display_title(r), "work_type_label": work_type_label(r), "year": r["year"], "status": r.get("status"), "source": r.get("source"),
+              "authors": [persons[a]["display_name"] for a in r.get("author_ids", []) if a in persons] + r.get("external_authors", [])} for r in rows]
+    return {"items": items, "total": len(items)}
+
+
+@app.post("/api/works")
+def add_work(body: dict = Body(...), x_position: str | None = Header(None)):
+    """«Добавить научную работу». Есепке керек қалған белгіні автор модульде толтырады, сондықтан бұл жерде екі өріс қана міндетті."""
+    position = position_of(x_position)
+    key = body.get("work_type")
+    spec = WORK_TYPES.get(key)
+    if not spec:
+        raise HTTPException(422, "Выберите тип научной работы")
+    fields = {k: str(v).strip() for k, v in (body.get("fields") or {}).items() if str(v or "").strip()}
+    if not fields.get("title") or not fields.get("year"):
+        raise HTTPException(422, "Укажите название и год")
+    return services.create_record({"type": spec["type"], "attrs": dict(spec["attrs"]), "fields": fields, "work_type": key, "as_author": True,
+                                   "author_ids": body.get("author_ids") or [], "external_authors": body.get("external_authors") or []}, position, "smartenu")
 
 
 @app.get("/api/records")
@@ -799,7 +827,7 @@ def integrations_status(x_position: str | None = Header(None)):
     return {"items": [
         {"id": "crossref", "name": "Crossref", "status": "live", "text": "Отправляет реальные запросы по DOI и ORCID"},
         {"id": "openalex", "name": "OpenAlex", "status": "live" if os.environ.get("OPENALEX_API_KEY") else "needs_key", "text": "Ищет по ORCID, нужен бесплатный API-ключ"},
-        {"id": "smartenu", "name": "Smart.ENU «Научные работы»", "status": "mock", "text": "Тестовый адаптер: поля преобразуются по форме Smart.ENU. Для реального подключения нужен API Департамента цифрового развития."},
+        {"id": "smartenu", "name": "Smart.ENU «Научные работы»", "status": "mock", "text": "Главный источник публикаций: модуль берёт статьи, конференции и монографии отсюда. Тестовый адаптер: в демо страница и модуль работают с одной базой. Для реального подключения нужен API Департамента цифрового развития."},
         {"id": "platonus", "name": "Импорт из Platonus", "status": "mock", "text": "Тестовый адаптер: воспроизводит результат импорта Platonus в Smart.ENU."},
         {"id": "scopus", "name": "Импорт из Scopus", "status": "mock", "text": "Тестовый адаптер: воспроизводит результат импорта Scopus в Smart.ENU."},
         {"id": "bilge", "name": "Специалист Bilge", "status": "mock", "text": "Агент вызывается через отдельный API. Для подключения к Bilge нужно согласование с её разработчиками."},

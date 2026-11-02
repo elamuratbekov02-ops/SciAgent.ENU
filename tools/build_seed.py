@@ -128,6 +128,21 @@ def canonical(p: dict) -> None:
     p["aliases"] = sorted({p["display_name"], p["display_latin"], *p["raws"]})
 
 
+def owner_works(owner_id: str) -> list[dict]:
+    """Демо иесінің Smart.ENU «Ғылыми жұмыстар» бетіндегі нақты жазбалары: есепке әлі кірмеген. Бетте көрінбеген өрістер ойдан толтырылмайды."""
+    works = [
+        ("Цифрлық дәуірдегі дамудың жаңа стратегиялары: BPMN арқылы цифрлық трансформация және бизнес-процестерді реинжинирингтеу", 2025),
+        ("Applications in Public Sector Process Reengineering for Innovation and Efficiency", 2025),
+        ("ҚР электрондық үкімет порталы үшін бизнес-процестерді модельдеу мен реинжинирингтің рөл", 2024),
+        ("ҚР электрондық үкімет порталы үшін бизнес-процестерді модельдеу мен реинжинирингтің рөлі", 2024),
+    ]
+    return [{"id": f"w{i:03d}", "type": "conference", "role": "doctoral", "attrs": {}, "fields": {"title": title, "year": str(year)}, "matrix": {},
+             "author_ids": [owner_id], "supervisor_ids": [], "reported_section": "5.4", "in_press": False, "year": year, "unit": "mgmt", "source": "smartenu",
+             "work_type": "conference", "status": "создано", "confirmed": True, "created_by": owner_id, "route": [],
+             "history": [{"at": "2025-12-01T09:00:00Z", "by": "Smart.ENU", "action": "Запись из «Научных работ»", "note": ""}], "_age_days": 5}
+            for i, (title, year) in enumerate(works, 1)]
+
+
 def workflow_examples(owner_id: str, supervisor_id: str) -> list[dict]:
     """Келісу бағытын көрсететін ойдан жасалған жазбалар. Тек демо иесіне тіркеледі және есепке кірмейді."""
     def route_of(sup_state: str, head_state: str) -> list[dict]:
@@ -353,6 +368,7 @@ def main(path: str) -> None:
     ]
 
     records += workflow_examples(owner["id"], teacher["id"])
+    records += owner_works(owner["id"])
 
     units = list(UNITS)
     unit_stats = {}

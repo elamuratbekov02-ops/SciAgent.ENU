@@ -22,6 +22,7 @@ from app.main import app  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 ARTICLE = {"type": "article", "attrs": {"index": "koksnvo"}, "fields": {"title": "[Пример] Новая статья для проверки маршрута", "source": "Вестник (пример)", "year": "2025", "issue": "1", "pages": "1-9", "issn": "2345-6787"}}
+OWNER_DRAFTS = 2  # демо иесінің «Научные работы» бетінен келген, есепке әлі кірмеген 2025 жылғы жұмыстары
 
 
 @pytest.fixture(autouse=True)
@@ -153,7 +154,7 @@ def test_examples_cover_every_stage_and_stay_out_of_the_report(client):
     assert {r["status"] for r in examples} == {"создано", "на доработке", "на согласовании"}
     assert all(r["fields"]["title"].startswith("[Пример]") and r["author_ids"] == [owner] for r in examples)
     data = client.get("/api/report/mgmt/2025", headers=H("head")).json()
-    assert len(data["outside"]) == len(examples) and data["rows"] == 164
+    assert len(data["outside"]) == len(examples) + OWNER_DRAFTS and data["rows"] == 164
     assert not in_export(client, "[Пример]")
 
 
@@ -171,7 +172,7 @@ def test_precheck_splits_clean_from_attention_and_bulk_approves_only_what_is_sen
 
 def test_author_pipeline_shows_stages_and_attest(client):
     data = client.get("/api/pipeline", headers=H("doctoral")).json()
-    assert data["counts"]["создано"] == 1 and data["counts"]["на доработке"] == 1 and data["counts"]["на согласовании"] == 3
+    assert data["counts"]["создано"] == 1 + OWNER_DRAFTS and data["counts"]["на доработке"] == 1 and data["counts"]["на согласовании"] == 3
     returned = next(i for i in data["items"] if i["status"] == "на доработке")
     assert returned["return_note"] and returned["can_submit"]
     assert data["campaign"]["days_left"] == 21 and data["attested_at"] is None
@@ -184,7 +185,7 @@ def test_reminders_reach_each_group_with_their_own_task(client):
     r = client.post("/api/campaign/remind-all", headers=H("resp")).json()
     assert r["authors"] >= 1 and r["approvers"] == 2 and r["responsible"] == 1
     author = client.get("/api/notifications", headers=H("doctoral")).json()["items"]
-    assert any("не отправлено записей: 1" in n["text"] and "возвращено на доработку: 1" in n["text"] for n in author)
+    assert any("не отправлено записей: 3" in n["text"] and "возвращено на доработку: 1" in n["text"] for n in author)
     assert any("на вашем согласовании" in n["text"] for n in client.get("/api/notifications", headers=H("head")).json()["items"])
     assert any("проверьте перечень" in n["text"] for n in client.get("/api/notifications", headers=H("resp")).json()["items"])
     assert client.post("/api/campaign/remind-all", headers=H("student")).status_code == 403
@@ -225,7 +226,7 @@ def test_agent_answers_about_the_process(client):
     assert "Уточните страницы" in ask("Где сейчас мои записи?", "doctoral")
     assert "Ждут решения: 3" in ask("Что на моём согласовании?", "head")
     assert "Согласовать записи: 3" in ask("Что мне нужно сделать?", "head")
-    assert "Ещё не согласовано и в отчёт не вошло: 5" in ask("Что мешает сдать отчёт?", "head")
+    assert "Ещё не согласовано и в отчёт не вошло: 7" in ask("Что мешает сдать отчёт?", "head")
 
 
 def test_student_reposting_teachers_article_changes_nothing_and_sees_nothing(client):
@@ -368,6 +369,65 @@ def test_audit_import_goes_to_head_for_approval(client):
     assert analytics.overview("mgmt", 2025)["raw"] == before
 
 
+def test_publication_comes_from_works_page_and_is_not_entered_again(client):
+    body = {"work_type": "koksnvo", "fields": {"title": "[Пример] Работа из Smart.ENU", "source": "Вестник (пример)", "year": "2025", "pages": "1-9", "issn": "2345-6787"}}
+    rec = client.post("/api/works", json=body, headers=H("doctoral")).json()["record"]
+    assert rec["type"] == "article" and rec["attrs"]["index"] == "koksnvo" and rec["source"] == "smartenu" and rec["sections"] == ["5.3б"]
+    row = next(i for i in client.get("/api/works", headers=H("doctoral")).json()["items"] if i["id"] == rec["id"])
+    assert row["work_type_label"] == "Научное издание, рекомендованное КОКСНВО" and row["status"] == "создано"
+    data = client.get("/api/pipeline", headers=H("doctoral")).json()
+    item = next(i for i in data["items"] if i["id"] == rec["id"])
+    assert item["origin"] == "works" and item["can_submit"] and not item["missing"]
+    # e001 черновик, e002 қайтарылған, иесінің екі жұмысы және жаңа жазба
+    assert data["works_new"] == 2 + OWNER_DRAFTS + 1 and data["works_total"] >= 10
+    assert client.post("/api/works", json=body, headers=H("doctoral")).json()["merged"] is True
+    assert not in_export(client, "Работа из Smart.ENU")
+
+
+def test_award_stays_in_module_and_not_on_works_page(client):
+    body = {"type": "award", "attrs": {"subtype": "ministry_letter"}, "fields": {"award_name": "[Пример] Грамота", "date": "12.05.2025"}, "as_author": True}
+    rid = client.post("/api/records", json=body, headers=H("teacher")).json()["record"]["id"]
+    assert rid not in [i["id"] for i in client.get("/api/works", headers=H("teacher")).json()["items"]]
+    assert next(i for i in client.get("/api/pipeline", headers=H("teacher")).json()["items"] if i["id"] == rid)["origin"] == "module"
+
+
+def test_conference_from_works_page_asks_only_for_what_the_form_needs(client):
+    rec = client.post("/api/works", json={"work_type": "conference", "fields": {"title": "[Пример] Доклад из Smart.ENU", "year": "2025"}}, headers=H("master")).json()["record"]
+    item = next(i for i in client.get("/api/pipeline", headers=H("master")).json()["items"] if i["id"] == rec["id"])
+    assert {"Место проведения", "Страницы", "ISBN"} <= set(item["missing"])
+    assert client.post("/api/works", json={"work_type": "conference", "fields": {"title": "Без года"}}, headers=H("master")).status_code == 422
+    assert client.post("/api/works", json={"work_type": "нет", "fields": {"title": "x", "year": "2025"}}, headers=H("master")).status_code == 422
+
+
+def test_textbook_stays_on_works_page_and_outside_the_report(client):
+    before = client.get("/api/report/mgmt/2025", headers=H("head")).json()
+    others = client.get("/api/pipeline", headers=H("teacher")).json()["others"]
+    rec = client.post("/api/works", json={"work_type": "textbook", "fields": {"title": "[Пример] Учебник", "year": "2025"}}, headers=H("teacher")).json()["record"]
+    assert rec["id"] in [i["id"] for i in client.get("/api/works", headers=H("teacher")).json()["items"]]
+    assert rec["id"] not in [i["id"] for i in client.get("/api/records", headers=H("teacher")).json()["items"]]
+    assert client.get(f"/api/records/{rec['id']}", headers=H("teacher")).status_code == 200
+    assert client.get("/api/pipeline", headers=H("teacher")).json()["others"] == others + 1
+    after = client.get("/api/report/mgmt/2025", headers=H("head")).json()
+    assert len(after["outside"]) == len(before["outside"]) and after["rows"] == before["rows"]
+    assert client.post(f"/api/records/{rec['id']}/submit", json={}, headers=H("teacher")).status_code == 422
+
+
+def test_owner_works_from_another_year_stay_out_of_the_report_list(client):
+    data = client.get("/api/pipeline", headers=H("doctoral")).json()
+    ids = [i["id"] for i in data["items"]]
+    assert "w001" in ids and "w003" not in ids and data["others"] == 2
+    works = client.get("/api/works", headers=H("doctoral")).json()["items"]
+    assert {"w001", "w002", "w003", "w004"} <= {i["id"] for i in works}
+    assert next(i for i in works if i["id"] == "w001")["work_type_label"] == "В сборниках международных научно-практических конференций"
+
+
+def test_works_page_filter_clears_only_within_own_scope(client):
+    assert client.get("/api/works", headers=H("head")).json()["total"] == 0
+    assert client.get("/api/works?mine=false", headers=H("head")).json()["total"] > 100
+    assert client.get("/api/works?mine=false", headers=H("student")).json()["total"] == client.get("/api/works", headers=H("student")).json()["total"]
+    assert len(client.get("/api/bootstrap", headers=H("head")).json()["work_types"]) == 8
+
+
 def test_assistant_without_key_answers_common_manager_questions(client):
     def ask(text, pos):
         return client.post("/api/agent/message", data={"session": "q", "text": text}, headers=H(pos)).json()
@@ -391,7 +451,7 @@ def test_importing_the_same_report_adds_no_untitled_rows():
 def test_agent_counts_match_analytics(client):
     head = agent.stats_for("overview", position("head"))
     raw = analytics.overview("mgmt", 2025)["raw"]
-    assert head["scopus"] == raw["scopus"] and head["koksnvo"] == raw["koksnvo"] and head["not_yet_approved"] == 5
+    assert head["scopus"] == raw["scopus"] and head["koksnvo"] == raw["koksnvo"] and head["not_yet_approved"] == 5 + OWNER_DRAFTS
 
 
 def test_campaign_numbers_agree_and_owner_can_confirm(client):

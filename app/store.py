@@ -10,7 +10,7 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from .catalog import route
+from .catalog import OUTSIDE_FORM_TYPES, route
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -177,8 +177,8 @@ def compute_sections(rec: dict) -> list[str]:
 APPROVED = "согласовано"
 
 
-def records(unit: str | None = None, year: int | None = None, include_merged: bool = False, approved_only: bool = False) -> list[dict]:
-    """approved_only: есеп пен аналитикаға тек келісілген жазба кіреді."""
+def records(unit: str | None = None, year: int | None = None, include_merged: bool = False, approved_only: bool = False, include_outside: bool = False) -> list[dict]:
+    """approved_only: есеп пен аналитикаға тек келісілген жазба кіреді. include_outside: нысанда тізімі жоқ оқулық пен патент тек «Научные работы» бетіне керек."""
     sql, args = "SELECT doc FROM records WHERE 1=1", []
     if unit:
         sql += " AND unit=?"
@@ -190,6 +190,8 @@ def records(unit: str | None = None, year: int | None = None, include_merged: bo
     for row in conn().execute(sql + " ORDER BY id", args):
         doc = json.loads(row["doc"])
         if approved_only and doc.get("status") != APPROVED:
+            continue
+        if not include_outside and doc.get("type") in OUTSIDE_FORM_TYPES:
             continue
         if include_merged or not doc.get("merged_into"):
             doc["section"] = doc["sections"][0] if doc.get("sections") else None

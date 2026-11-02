@@ -314,6 +314,8 @@ pre.code { background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 10p
 .add-drop .add-ai { color: var(--primary-dark); margin-top: 4px; font-weight: 500; }
 .add-btn { cursor: pointer; } .add-btn:hover { background: #f8fafc; border-color: var(--primary); }
 .add-inline { display: flex; gap: 6px; margin-top: 6px; } .add-inline .inp { margin: 0; min-width: 0; }
+.add-works { background: #f8fafc; }
+.add-opt > span.add-stat { color: var(--text); margin-top: 4px; }
 .path-card { margin-bottom: 14px; }
 .campaign-note { display: flex; align-items: center; gap: 12px; justify-content: space-between; flex-wrap: wrap; }
 .appr { display: flex; gap: 14px; padding: 12px 14px; border-bottom: 1px solid var(--border-soft); }

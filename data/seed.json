@@ -12975,6 +12975,142 @@
     }
    ],
    "_age_days": 4
+  },
+  {
+   "id": "w001",
+   "type": "conference",
+   "role": "doctoral",
+   "attrs": {},
+   "fields": {
+    "title": "Цифрлық дәуірдегі дамудың жаңа стратегиялары: BPMN арқылы цифрлық трансформация және бизнес-процестерді реинжинирингтеу",
+    "year": "2025"
+   },
+   "matrix": {},
+   "author_ids": [
+    "p101"
+   ],
+   "supervisor_ids": [],
+   "reported_section": "5.4",
+   "in_press": false,
+   "year": 2025,
+   "unit": "mgmt",
+   "source": "smartenu",
+   "work_type": "conference",
+   "status": "создано",
+   "confirmed": true,
+   "created_by": "p101",
+   "route": [],
+   "history": [
+    {
+     "at": "2025-12-01T09:00:00Z",
+     "by": "Smart.ENU",
+     "action": "Запись из «Научных работ»",
+     "note": ""
+    }
+   ],
+   "_age_days": 5
+  },
+  {
+   "id": "w002",
+   "type": "conference",
+   "role": "doctoral",
+   "attrs": {},
+   "fields": {
+    "title": "Applications in Public Sector Process Reengineering for Innovation and Efficiency",
+    "year": "2025"
+   },
+   "matrix": {},
+   "author_ids": [
+    "p101"
+   ],
+   "supervisor_ids": [],
+   "reported_section": "5.4",
+   "in_press": false,
+   "year": 2025,
+   "unit": "mgmt",
+   "source": "smartenu",
+   "work_type": "conference",
+   "status": "создано",
+   "confirmed": true,
+   "created_by": "p101",
+   "route": [],
+   "history": [
+    {
+     "at": "2025-12-01T09:00:00Z",
+     "by": "Smart.ENU",
+     "action": "Запись из «Научных работ»",
+     "note": ""
+    }
+   ],
+   "_age_days": 5
+  },
+  {
+   "id": "w003",
+   "type": "conference",
+   "role": "doctoral",
+   "attrs": {},
+   "fields": {
+    "title": "ҚР электрондық үкімет порталы үшін бизнес-процестерді модельдеу мен реинжинирингтің рөл",
+    "year": "2024"
+   },
+   "matrix": {},
+   "author_ids": [
+    "p101"
+   ],
+   "supervisor_ids": [],
+   "reported_section": "5.4",
+   "in_press": false,
+   "year": 2024,
+   "unit": "mgmt",
+   "source": "smartenu",
+   "work_type": "conference",
+   "status": "создано",
+   "confirmed": true,
+   "created_by": "p101",
+   "route": [],
+   "history": [
+    {
+     "at": "2025-12-01T09:00:00Z",
+     "by": "Smart.ENU",
+     "action": "Запись из «Научных работ»",
+     "note": ""
+    }
+   ],
+   "_age_days": 5
+  },
+  {
+   "id": "w004",
+   "type": "conference",
+   "role": "doctoral",
+   "attrs": {},
+   "fields": {
+    "title": "ҚР электрондық үкімет порталы үшін бизнес-процестерді модельдеу мен реинжинирингтің рөлі",
+    "year": "2024"
+   },
+   "matrix": {},
+   "author_ids": [
+    "p101"
+   ],
+   "supervisor_ids": [],
+   "reported_section": "5.4",
+   "in_press": false,
+   "year": 2024,
+   "unit": "mgmt",
+   "source": "smartenu",
+   "work_type": "conference",
+   "status": "создано",
+   "confirmed": true,
+   "created_by": "p101",
+   "route": [],
+   "history": [
+    {
+     "at": "2025-12-01T09:00:00Z",
+     "by": "Smart.ENU",
+     "action": "Запись из «Научных работ»",
+     "note": ""
+    }
+   ],
+   "_age_days": 5
   }
  ],
  "positions": [

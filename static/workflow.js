@@ -9,7 +9,7 @@ async function sendForApproval(id, supervisorId, quiet) {
   }
   if (r.data && r.data.needs_supervisor) {
     S.drawerId = id;
-    toast('Выберите научного руководителя, запись откроется', true);
+    toast('Выберите научного руководителя');
     return false;
   }
   toast((r.data && r.data.detail) || 'Не удалось отправить', true);
@@ -95,27 +95,28 @@ const RecordFlow = {
     </div></div>`,
 };
 
-/* Нәтижені қосудың бір ғана орны. */
+/* Нәтиже қайдан келеді: жарияланым «Научные работы» бетінен, қалғаны осы жерден. */
 const AddResult = {
+  props: ['total', 'fresh'],
   setup() {
-    const doi = ref('');
     const drag = ref(false);
     const toChat = (payload) => { S.chatOpen = true; S.chatQueue = payload; };
     const pick = (e) => { const f = e.target.files[0]; e.target.value = ''; if (f) toChat({ file: f, text: '' }); };
     const drop = (e) => { drag.value = false; const f = e.dataTransfer.files[0]; if (f) toChat({ file: f, text: '' }); };
-    const sendDoi = () => { if (doi.value.trim()) { toChat({ text: doi.value.trim() }); doi.value = ''; } };
     const form = () => { S.newRecord = { as_author: true }; };
-    return { doi, drag, pick, drop, sendDoi, form };
+    const openWorks = () => { S.page = 'works'; };
+    return { drag, pick, drop, form, openWorks };
   },
   template: `<div class="card add-result">
-    <div class="card-head"><div><h2>Добавить результат</h2><div class="small muted">Статья, конференция, монография, диплом, награда, грант, редколлегия, проект. Вносится один раз, отсюда.</div></div></div>
+    <div class="card-head"><div><h2>Откуда берутся результаты</h2><div class="small muted">Модуль берёт то, что уже есть в Smart.ENU. Вносить одно и то же дважды не нужно.</div></div></div>
     <div class="add-grid">
+      <div class="add-opt add-works"><i class="pi pi-file"></i><b>Публикации: из «Научных работ»</b><span>Статьи, конференции и монографии вы вносите как обычно: вручную или импортом из Platonus и Scopus. Сюда они приходят сами.</span>
+        <span class="add-stat">Там работ: <b>{{ total }}</b>. Ещё не отправлено на согласование: <b>{{ fresh }}</b>.</span>
+        <button class="btn sm" style="align-self:flex-start;margin-top:6px" @click="openWorks"><i class="pi pi-external-link"></i> Открыть «Научные работы»</button></div>
       <label class="add-drop" :class="{on: drag}" @dragover.prevent="drag = true" @dragleave="drag = false" @drop.prevent="drop">
-        <i class="pi pi-cloud-upload"></i><b>Загрузите файл</b><span>PDF статьи, фото диплома, титул монографии. Перетащите сюда или выберите.</span><span class="add-ai"><i class="fa-solid fa-robot"></i> ИИ прочитает и заполнит карточку</span>
+        <i class="pi pi-cloud-upload"></i><b>Чего там нет: загрузите файл</b><span>Диплом, грамота, удостоверение, приказ, договор о гранте. Перетащите сюда или выберите.</span><span class="add-ai"><i class="fa-solid fa-robot"></i> ИИ прочитает и заполнит карточку</span>
         <input type="file" accept=".pdf,.png,.jpg,.jpeg,.webp" hidden @change="pick"></label>
-      <div class="add-opt"><i class="pi pi-link"></i><b>Укажите DOI или ссылку</b><span>Можно несколько DOI сразу, данные придут из Crossref.</span>
-        <div class="add-inline"><input class="inp" v-model="doi" placeholder="10.32523/…" @keydown.enter.prevent="sendDoi"><button class="btn primary" @click="sendDoi"><i class="pi pi-arrow-right"></i></button></div></div>
-      <button class="add-opt add-btn" @click="form"><i class="pi pi-pencil"></i><b>Заполните форму</b><span>Выберите вид результата, раздел отчёта система определит сама.</span></button>
+      <button class="add-opt add-btn" @click="form"><i class="pi pi-pencil"></i><b>Или заполните форму</b><span>Награда, призовое место, стипендия или грант, редколлегия, проект. Раздел отчёта система определит сама.</span></button>
     </div>
   </div>`,
 };
@@ -141,11 +142,12 @@ const MyResults = {
     const confirmOwn = async (i) => { await api(`/api/records/${i.id}/confirm`, { method: 'POST' }); toast('Подтверждено'); bump(); };
     const attest = async () => { await api('/api/pipeline/attest', { method: 'POST' }); toast('Спасибо, список подтверждён'); await load(); };
     const openFound = () => go('found');
-    return { S, data, tab, TABS, count, rows, route, send, confirmOwn, attest, openFound };
+    const openWorks = () => { S.page = 'works'; };
+    return { S, data, tab, TABS, count, rows, route, send, confirmOwn, attest, openFound, openWorks };
   },
   template: `<div v-if="data">
     <div class="notice" v-if="S.boot.inbox"><i class="pi pi-inbox"></i> На вашем согласовании записей: <b>{{ S.boot.inbox }}</b>. <button class="link" @click="S.view = 'approvals'">Открыть</button></div>
-    <AddResult/>
+    <AddResult :total="data.works_total" :fresh="data.works_new"/>
     <div class="card path-card"><div class="card-head"><div><h2>Что будет дальше</h2><div class="small muted">Весь путь записи виден здесь. Вносить заново и пересылать по почте ничего не нужно.</div></div></div><div class="card-body"><RouteLine :route="route" first="Вы" status="создано"/></div></div>
     <div class="notice campaign-note" v-if="data.campaign.deadline">
       <div><b>{{ data.campaign.title }}.</b> Срок: {{ data.campaign.deadline.split('-').reverse().join('.') }}<template v-if="data.campaign.days_left >= 0">, осталось дней: {{ data.campaign.days_left }}</template>. В отчёт войдут согласованные записи: {{ data.in_report }}.
@@ -158,7 +160,7 @@ const MyResults = {
     <div class="card"><div class="table-wrap"><table>
       <thead><tr><th style="width:42%">Результат</th><th>Вид</th><th>Раздел</th><th>Статус</th><th>Что дальше</th></tr></thead>
       <tbody><tr v-for="i in rows" :key="i.id">
-        <td><button class="link" @click="S.drawerId = i.id">{{ i.title }}</button><div class="small muted">{{ i.year }}</div><div v-if="i.return_note" class="small lv-warn"><i class="pi pi-comment"></i> {{ i.return_note }}</div></td>
+        <td><button class="link" @click="S.drawerId = i.id">{{ i.title }}</button><div class="small muted">{{ i.year }}<template v-if="i.origin === 'works'"> · из «Научных работ»</template></div><div v-if="i.return_note" class="small lv-warn"><i class="pi pi-comment"></i> {{ i.return_note }}</div></td>
         <td class="small">{{ i.index ? S.boot.labels.index[i.index] : i.type_label }}</td>
         <td class="nowrap"><span v-for="s in i.sections" :key="s" class="section-badge">{{ s }}</span></td>
         <td><Tag :status="i.status"/><div class="small muted" style="margin-top:3px">{{ i.stage }}<template v-if="i.days && !i.in_report">, {{ i.days }} дн.</template></div></td>
@@ -169,6 +171,7 @@ const MyResults = {
           <template v-else><span class="muted">Ждём решения</span></template>
         </td></tr></tbody>
     </table></div><div v-if="!rows.length" class="empty">Здесь пока пусто.</div></div>
+    <div class="notice" v-if="data.others" style="margin-top:12px"><i class="pi pi-info-circle"></i> В «Научных работах» есть ещё записи, которые в отчёт за {{ data.year }} год не входят: <b>{{ data.others }}</b> (другой год, учебники, патенты). <button class="link" @click="openWorks">Открыть</button></div>
   </div>`,
 };
 
@@ -304,8 +307,10 @@ const Overview = {
 const HowItWorks = {
   setup() {
     const YEAR = [
-      { who: 'Автор', roles: ['author', 'supervisor', 'responsible', 'head'], title: 'Вносит результат один раз', where: 'Мои результаты → Добавить результат', text: 'Файл, DOI или ссылка, форма. Импорт из Platonus и Scopus и поиск по ORCID сами предлагают найденное, остаётся нажать «Моя».', ai: 'Читает PDF, фото и ссылку, заполняет поля, находит соавторов в справочнике и определяет раздел отчёта.' },
-      { who: 'Автор', roles: ['author', 'supervisor', 'responsible', 'head'], title: 'Проверяет карточку и отправляет', where: 'Карточка → Отправить на согласование', text: 'Каждое поле помечено: подтверждено или нет. Прикладывает скриншот, диплом или титул, если их требует форма.', auto: 'Система сверяет поля с Crossref и самим документом, показывает расхождения, дубли, журнал из списка риска и чего не хватает.' },
+      { who: 'Автор', roles: ['author', 'supervisor', 'responsible', 'head'], title: 'Вносит публикацию в «Научные работы»', where: 'Научная деятельность → Научные работы', text: 'Это уже существующая функция Smart.ENU: форма, импорт из Platonus и Scopus. В модуль публикацию повторно вносить не нужно.', ai: 'В чате читает PDF и ссылку, заполняет карточку и сохраняет её на эту страницу.' },
+      { who: 'Система', roles: [], title: 'Модуль сам забирает работу', where: 'Мои результаты', text: 'Работа появляется в списке автора. Система определяет раздел формы Ф ЕНУ 605-02-25 и показывает, чего не хватает: индекса, страниц, места проведения.', ai: 'Определяет индекс по ISSN и спискам журналов, находит соавторов в справочнике. Поиск по ORCID предлагает то, что ещё не внесено.' },
+      { who: 'Автор', roles: ['author', 'supervisor', 'responsible', 'head'], title: 'Вносит то, чего нет в «Научных работах»', where: 'Мои результаты', text: 'Награды, призовые места, стипендии и гранты, редколлегии, проекты: на странице «Научные работы» таких типов нет.', ai: 'Читает фото диплома, грамоту или приказ и заполняет карточку.' },
+      { who: 'Автор', roles: ['author', 'supervisor', 'responsible', 'head'], title: 'Дополняет и отправляет на согласование', where: 'Мои результаты → Отправить', text: 'Дополняет то, что требует форма. Прикладывает скриншот, диплом или титул, если они нужны.', auto: 'Система сверяет поля с Crossref и самим документом, показывает расхождения, дубли, журнал из списка риска и чего не хватает.' },
       { who: 'Научный руководитель', roles: ['supervisor'], title: 'Согласует работы своих обучающихся', where: 'На согласовании', text: 'Только для студентов, магистрантов и докторантов. Согласует или возвращает с комментарием. Статья преподавателя этот шаг пропускает.', auto: 'Система заранее показывает, какие записи без замечаний, а на какие нужно посмотреть и почему.' },
       { who: 'Заведующий кафедрой', roles: ['head'], title: 'Утверждает запись для кафедры', where: 'На согласовании', text: 'Записи без замечаний согласует одним нажатием. Если руководитель не отвечает, может согласовать за него. Свою работу отправляет директору.', auto: 'Та же проверка: разбирать нужно только записи с замечаниями.' },
       { who: 'Система', roles: [], title: 'Запись попадает в базу кафедры', where: 'Аналитика, Отчёт НИР', text: 'Статус «согласовано». Запись сразу видна в аналитике и в отчёте. Чтобы её изменить, автор открывает её снова, и она заново проходит согласование.', ai: null },

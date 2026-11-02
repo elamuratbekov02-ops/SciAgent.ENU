@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 from . import integrations, store, validators
-from .catalog import TYPES, display_title
+from .catalog import OUTSIDE_FORM_TYPES, TYPES, display_title, work_type_label, work_type_of
 from .names import match_person, norm_title
 
 LEARNERS = ("student", "master", "doctoral")
@@ -58,7 +58,7 @@ def resolve_authors(raw_authors: list[str]) -> dict:
 def find_existing(fields: dict, exclude: str | None = None) -> dict | None:
     title = norm_title(fields.get("title", ""))
     doi = (fields.get("doi") or "").lower()
-    for r in store.records():
+    for r in store.records(include_outside=True):
         if r["id"] == exclude:
             continue
         if doi and (r["fields"].get("doi") or "").lower() == doi:
@@ -148,6 +148,8 @@ def create_record(payload: dict, position: dict, source: str = "form") -> dict:
     for s in store.supervisions():
         if s["learner_id"] in rec["author_ids"] and s["kind"] == "main" and s["supervisor_id"] not in supervisors:
             supervisors.append(s["supervisor_id"])
+    if payload.get("work_type"):
+        rec["work_type"] = payload["work_type"]
     rec.update({"supervisor_ids": supervisors, "source": source, "status": "создано", "confirmed": True,
                 "confirmed_by": [position.get("person")], "created_by": position.get("person"),
                 "created_at": store.now(), "evidence": clean_evidence(payload.get("evidence")),
@@ -208,8 +210,8 @@ def scope_units(position: dict) -> list[str] | None:
     return [position.get("unit")]
 
 
-def visible_records(position: dict, year: int | None = None, mine_only: bool = False) -> list[dict]:
-    rows = store.records(year=year)
+def visible_records(position: dict, year: int | None = None, mine_only: bool = False, with_works: bool = False) -> list[dict]:
+    rows = store.records(year=year, include_outside=with_works)
     role = position.get("role")
     me = position.get("person")
     if role in ("author",) or mine_only:
@@ -225,7 +227,7 @@ def visible_records(position: dict, year: int | None = None, mine_only: bool = F
 
 
 def can_see(position: dict, rec: dict) -> bool:
-    return any(r["id"] == rec["id"] for r in visible_records(position))
+    return any(r["id"] == rec["id"] for r in visible_records(position, with_works=True))
 
 
 def can_edit(position: dict, rec: dict) -> bool:
@@ -901,7 +903,7 @@ def item_view(rec: dict, position: dict, persons: dict, rows: list[dict] | None 
             "has_evidence": bool(rec.get("evidence")), "evidence_need": sorted({evidence_need(s) for s in rec.get("sections", [])} - {None}),
             "missing": [m["label"] for m in missing_required(rec["type"], rec.get("fields", {}), rec.get("attrs", {}))] + ([] if rec.get("sections") else ["раздел отчёта"]),
             "can_submit": is_author(position, rec) and rec.get("status") in EDITABLE_STATUSES, "confirmed": bool(rec.get("confirmed")),
-            "needs_confirm": position.get("person") in awaiting_confirmation(rec)}
+            "needs_confirm": position.get("person") in awaiting_confirmation(rec), "origin": "works" if work_type_of(rec) else "module", "work_type_label": work_type_label(rec)}
 
 
 def flow_view(rec: dict, position: dict) -> dict:
@@ -934,7 +936,10 @@ def pipeline(position: dict, year: int = 2025) -> dict:
     """Автордың жеке беті: әр нәтиже қай кезеңде тұр және енді не істеу керек."""
     me = position.get("person")
     persons = store.persons()
-    rows = [r for r in store.records() if me in r.get("author_ids", []) or r.get("created_by") == me]
+    mine = [r for r in store.records(include_outside=True) if me in r.get("author_ids", []) or r.get("created_by") == me]
+    # Басқа жылдың жұмысы мен нысанда тізімі жоқ жұмыс «Научные работы» бетінде қалады, бұл есептің ісі емес.
+    rows = [r for r in mine if r.get("year") == year and r["type"] not in OUTSIDE_FORM_TYPES]
+    others = [r for r in mine if r not in rows]
     rows.sort(key=lambda r: (r.get("status") == store.APPROVED, r.get("updated_at", "")), reverse=False)
     items = [item_view(r, position, persons) for r in rows]
     counts = {"создано": 0, "на доработке": 0, "на согласовании": 0, store.APPROVED: 0}
@@ -946,7 +951,8 @@ def pipeline(position: dict, year: int = 2025) -> dict:
     in_year = sum(1 for r in rows if r.get("year") == year and r.get("status") == store.APPROVED)
     return {"items": items, "counts": counts, "campaign": {"title": camp.get("title"), "deadline": camp.get("deadline"), "days_left": days_left},
             "attested_at": attested.get(me), "year": year, "in_report": in_year, "found": len(store.candidates(person=me)),
-            "unconfirmed": sum(1 for r in rows if me in awaiting_confirmation(r))}
+            "unconfirmed": sum(1 for r in rows if me in awaiting_confirmation(r)), "others": len(others),
+            "works_total": sum(1 for r in mine if work_type_of(r)), "works_new": sum(1 for r in rows if work_type_of(r) and r.get("status") in EDITABLE_STATUSES)}
 
 
 def attest_list(position: dict, year: int = 2025) -> dict:

@@ -91,7 +91,6 @@ const Records = {
       if (filters.mine) p.set('mine', 'true');
       return api('/api/records?' + p.toString());
     });
-    const addOpen = ref(false);
     const kok = ref(false);
     const journal = reactive({ open: false, issn: '', name: '', result: null });
     watch(filters, load);
@@ -100,30 +99,16 @@ const Records = {
     const size = 25;
     const paged = computed(() => (data.value ? data.value.items.slice(page.value * size, (page.value + 1) * size) : []));
     watch(data, () => { page.value = 0; });
-    const importFrom = async (name) => {
-      addOpen.value = false;
-      const r = await api(`/api/integrations/${name}/import`, { method: 'POST' });
-      toast(r.text);
-      bump();
-    };
     const checkJournal = async () => {
       journal.result = await api(`/api/journal/check?issn=${encodeURIComponent(journal.issn)}&name=${encodeURIComponent(journal.name)}`);
     };
-    return { S, can, data, filters, addOpen, kok, journal, paged, page, size, importFrom, checkJournal, dl, ROLE_NAME };
+    return { S, can, data, filters, kok, journal, paged, page, size, checkJournal, dl, ROLE_NAME };
   },
   template: `<div>
-    <div class="page-title"><h1>Научные работы</h1></div>
+    <div class="page-title"><h1>Все записи</h1><p>Публикации приходят из «Научных работ», остальные результаты внесены в модуле. В отчёт входят только согласованные записи.</p></div>
     <div class="card toolbar">
-      <div class="dropdown">
-        <button class="tbtn" @click="addOpen = !addOpen"><i class="fa-solid fa-plus"></i> Добавить научную работу <i class="fa-solid fa-chevron-down small"></i></button>
-        <div class="menu" v-if="addOpen" @mouseleave="addOpen = false">
-          <button @click="addOpen = false; S.newRecord = {}"><i class="fa-regular fa-file"></i> Добавить новую</button>
-          <button @click="addOpen = false; S.chatOpen = true"><i class="fa-regular fa-comment-dots"></i> Отправить файл в чат</button>
-          <div class="sep">Импорт</div>
-          <button @click="importFrom('platonus')"><i class="fa-solid fa-right-to-bracket"></i> Platonus</button>
-          <button @click="importFrom('scopus')"><i class="fa-solid fa-right-to-bracket"></i> Scopus</button>
-        </div>
-      </div>
+      <button class="tbtn" @click="S.page = 'works'"><i class="pi pi-external-link"></i> Открыть «Научные работы»</button>
+      <button class="tbtn" @click="S.newRecord = {}"><i class="fa-solid fa-plus"></i> Награда, диплом, грант, проект</button>
       <button class="tbtn" @click="dl('/api/export/person/' + S.boot.position.person)"><i class="fa-solid fa-print"></i> Список научных работ</button>
       <div class="dropdown">
         <button class="tbtn" @click="journal.open = !journal.open"><i class="fa-solid fa-shield-halved"></i> Проверить журнал</button>
@@ -276,6 +261,10 @@ const NewRecord = {
     onMounted(refresh);
     watch(search, async (q) => { results.value = q.length > 1 ? (await api('/api/directory?q=' + encodeURIComponent(q))).items : []; });
     const spec = computed(() => (form.type ? S.boot.types[form.type] : null));
+    // Жарияланым бұл жерден таңдалмайды: оның үйі «Научные работы», түрі тек чат карточкасынан келеді.
+    const moduleTypes = computed(() => Object.fromEntries(Object.entries(S.boot.types).filter(([k]) => !S.boot.work_record_types.includes(k))));
+    const isWork = computed(() => S.boot.work_record_types.includes(form.type));
+    const toWorks = () => { S.newRecord = null; S.page = 'works'; };
     const add = (p) => { if (!chosen.value.some((c) => c.id === p.id)) chosen.value.push(p); search.value = ''; results.value = []; };
     const save = async (send) => {
       saving.value = true;
@@ -289,14 +278,14 @@ const NewRecord = {
         bump();
       } finally { saving.value = false; }
     };
-    return { S, form, spec, preview, search, results, chosen, add, save, saving, ROLE_NAME };
+    return { S, form, spec, moduleTypes, isWork, toWorks, preview, search, results, chosen, add, save, saving, ROLE_NAME };
   },
   template: `<div class="overlay" @click.self="S.newRecord = null"><div class="modal">
     <div class="drawer-head"><div><h2>Добавить научный результат</h2><div class="small muted" v-if="spec">{{ spec.label }} <button class="link small" @click="form.type = null">сменить тип</button></div></div>
       <span class="spacer"></span><button class="icon-btn" aria-label="Закрыть" @click="S.newRecord = null"><i class="fa-solid fa-xmark"></i></button></div>
     <div class="drawer-body" v-if="!form.type">
-      <p class="muted" style="margin-top:0">Знать все 56 списков отчёта не нужно. Выберите тип, а раздел система определит сама.</p>
-      <div class="type-grid"><button v-for="(t,k) in S.boot.types" :key="k" class="type-card" @click="form.type = k"><i class="fa-solid" :class="t.icon"></i><b>{{ t.label }}</b><span>В чат: {{ t.chat_hint }}</span></button></div>
+      <p class="muted" style="margin-top:0">Знать все 56 списков отчёта не нужно. Выберите тип, а раздел система определит сама. Статьи, конференции и монографии вносятся в <button class="link" @click="toWorks">«Научные работы»</button>, сюда они приходят сами.</p>
+      <div class="type-grid"><button v-for="(t,k) in moduleTypes" :key="k" class="type-card" @click="form.type = k"><i class="fa-solid" :class="t.icon"></i><b>{{ t.label }}</b><span>В чат: {{ t.chat_hint }}</span></button></div>
     </div>
     <div class="drawer-body split" v-else>
       <div>
@@ -313,6 +302,7 @@ const NewRecord = {
           <label class="f" style="margin-top:8px">Внешние авторы (через запятую)<input class="inp" v-model="form.external"></label></div>
       </div>
       <div class="preview-box" v-if="preview">
+        <div v-if="isWork" class="small muted" style="margin-bottom:8px"><i class="pi pi-file"></i> Запись сохранится на странице «Научные работы».</div>
         <h3>Как попадёт в отчёт</h3>
         <div style="margin:6px 0 10px"><span v-for="s in preview.record.sections" :key="s" class="section-badge">{{ s }}</span><span v-if="!preview.record.sections.length" class="muted small">Выберите признаки</span></div>
         <div v-if="preview.duplicate" class="notice warn"><b>Эта запись уже есть в базе.</b> Вносить её повторно не нужно: при сохранении дополнятся только недостающие сведения.<div class="small muted">{{ preview.duplicate.title }}</div></div>
@@ -543,7 +533,7 @@ const Report = {
       <div class="card" style="margin-bottom:14px"><div class="card-head"><div><h2>Аналитическая справка</h2><div class="small muted">Черновик текста для заседания кафедры: сравнение с прошлым годом и что требует внимания.</div></div><span class="spacer"></span>
         <button class="btn sm" :disabled="narrativeBusy" @click="makeNarrative"><i class="fa-solid fa-robot"></i> {{ narrativeBusy ? 'Готовлю…' : narrative ? 'Обновить' : 'Подготовить черновик' }}</button><button v-if="narrative" class="btn sm" @click="copyNarrative"><i class="pi pi-copy"></i> Копировать</button></div>
         <div class="card-body" v-if="narrative" style="white-space:pre-wrap">{{ narrative.text }}</div></div>
-      <div class="notice">Всего показателей: {{ data.indicators.length }}. Считаются автоматически: <b>{{ data.auto_count }}</b>, вносит человек: <b>{{ data.manual_count }}</b>. В колонке «В отчёте» указано значение, набранное ранее вручную; при расхождении оно выделяется. Тип соавтора агент определяет по аффилиации в статье, а пока отметки нет, стоит «–». Число ЦУР посчитано по ключевым словам в названии.</div>
+      <div class="notice">Всего показателей: {{ data.indicators.length }}. Считаются автоматически: <b>{{ data.auto_count }}</b>, вносит человек: <b>{{ data.manual_count }}</b>. В колонке «В отчёте» указано значение, набранное ранее вручную; при расхождении оно выделяется. Тип соавтора и ЦУР агент определяет по статье. Пока отметки нет, стоит «–», а в файл идёт значение из отчёта.</div>
       <div class="card" v-if="data.can_edit_manual" style="margin-bottom:14px"><div class="card-body form-grid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));align-items:end">
         <label class="f">Доля остепенённых<input class="inp" type="number" step="0.001" v-model="manual.degree_share"></label>
         <label class="f">Доля зарубежных учёных<input class="inp" type="number" step="0.001" v-model="manual.foreign_scholar_share"></label>

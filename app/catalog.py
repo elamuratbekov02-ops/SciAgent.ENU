@@ -152,7 +152,79 @@ TYPES = {
         ],
         "attrs": [],
     },
+    "textbook": {
+        "label": "Учебник, пособие",
+        "icon": "fa-book-open",
+        "chat_hint": "Титульный лист или ISBN",
+        "fields": [
+            {"key": "title", "label": "Название", "required": True, "wide": True},
+            {"key": "publisher", "label": "Издательство"},
+            {"key": "year", "label": "Год", "required": True, "kind": "number"},
+            {"key": "sheets", "label": "Печатных листов"},
+            {"key": "isbn", "label": "ISBN"},
+        ],
+        "attrs": [],
+    },
+    "patent": {
+        "label": "Авторское свидетельство, патент",
+        "icon": "fa-certificate",
+        "chat_hint": "Свидетельство или патент",
+        "fields": [
+            {"key": "title", "label": "Название", "required": True, "wide": True},
+            {"key": "number", "label": "Номер документа"},
+            {"key": "year", "label": "Год", "required": True, "kind": "number"},
+            {"key": "link", "label": "Ссылка"},
+        ],
+        "attrs": [],
+    },
 }
+
+# Жарияланымның үйі: Smart.ENU «Научные работы». Модуль оларды сол жерден алады, ал қалған нәтижелер модульге енгізіледі.
+WORK_RECORD_TYPES = ("article", "conference", "monograph", "textbook", "patent")
+# Ф ЕНУ 605-02-25 нысанында оқулық пен патент тізімі жоқ: олар «Научные работы» бетінде қалады, есепке кірмейді.
+OUTSIDE_FORM_TYPES = ("textbook", "patent")
+WORK_TYPES = {
+    "textbook": {"label": "Учебники / учебные пособия / методические пособия / семинары", "type": "textbook", "attrs": {}},
+    "monograph": {"label": "Монография", "type": "monograph", "attrs": {}},
+    "wos": {"label": "Статьи в международных рецензируемых журналах Web of Science Core Collection", "type": "article", "attrs": {"index": "wos"}},
+    "authority": {"label": "В изданиях, рекомендованных уполномоченным органом", "type": "article", "attrs": {"index": "koksnvo"}},
+    "conference": {"label": "В сборниках международных научно-практических конференций", "type": "conference", "attrs": {}},
+    "patent": {"label": "Авторские свидетельства, патенты", "type": "patent", "attrs": {}},
+    "koksnvo": {"label": "Научное издание, рекомендованное КОКСНВО", "type": "article", "attrs": {"index": "koksnvo"}},
+    "other": {"label": "Другое", "type": "article", "attrs": {}},
+}
+WORK_LABEL_SCOPUS = "Статьи Scopus (импорт из Scopus)"
+_WORK_FORM = {
+    "article": ("title", "source", "year", "issue", "pages", "issn", "doi"),
+    "conference": ("title", "source", "year", "issue", "pages", "isbn", "link"),
+    "monograph": ("title", "publisher", "city", "year", "sheets", "isbn"),
+    "textbook": ("title", "publisher", "year", "sheets", "isbn"),
+    "patent": ("title", "number", "year", "link"),
+}
+
+
+def work_form(key: str) -> dict:
+    """«Добавить научную работу» терезесі. Міндетті өріс екеу, есепке керегінің қалғанын модуль кейін сұрайды."""
+    spec = WORK_TYPES[key]
+    labels = {f["key"]: f["label"] for f in TYPES[spec["type"]]["fields"]}
+    return {"label": spec["label"], "fields": [{"key": k, "label": labels.get(k, "Год"), "required": k in ("title", "year")} for k in _WORK_FORM[spec["type"]]]}
+
+
+def work_type_of(rec: dict) -> str | None:
+    """Жазбаның «Научные работы» тізіміндегі түрі. None болса, жазба тек модульде сақталады."""
+    if rec.get("type") not in WORK_RECORD_TYPES:
+        return None
+    if rec.get("work_type") in WORK_TYPES:
+        return rec["work_type"]
+    if rec["type"] == "article":
+        return {"wos": "wos", "scopus": "scopus", "koksnvo": "koksnvo"}.get(rec.get("attrs", {}).get("index"), "other")
+    return rec["type"]
+
+
+def work_type_label(rec: dict) -> str:
+    key = work_type_of(rec)
+    return WORK_LABEL_SCOPUS if key == "scopus" else WORK_TYPES[key]["label"] if key else ""
+
 
 SMARTENU_TYPE = {
     ("article", "wos"): "article",
