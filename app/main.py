@@ -12,7 +12,8 @@ import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import Body, FastAPI, File, Form, Header, HTTPException, Query, Request, UploadFile
+from fastapi import Body, FastAPI, File, Form, Header, HTTPException, Query, UploadFile
+from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -46,21 +47,29 @@ XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 MANAGERS = ("responsible", "head", "director", "science")
 
 
-@app.middleware("http")
-async def demo_password(request: Request, call_next):
+class DemoPassword:
     """Демода логин жоқ. Сілтеме интернетке шыққанда SCIAGENT_DEMO_PASSWORD кіруді шектейді."""
-    secret = os.environ.get("SCIAGENT_DEMO_PASSWORD")
-    if secret and request.url.path != "/healthz":
-        supplied = ""
-        header = request.headers.get("authorization", "")
-        if header.lower().startswith("basic "):
-            try:
-                supplied = base64.b64decode(header[6:]).decode("utf-8").split(":", 1)[1]
-            except (ValueError, IndexError):
-                supplied = ""
-        if not secrets.compare_digest(supplied.encode("utf-8"), secret.encode("utf-8")):
-            return Response(status_code=401, headers={"WWW-Authenticate": 'Basic realm="SciAgent.ENU demo"'})
-    return await call_next(request)
+
+    def __init__(self, inner):
+        self.inner = inner
+
+    async def __call__(self, scope, receive, send):
+        secret = os.environ.get("SCIAGENT_DEMO_PASSWORD")
+        if secret and scope["type"] == "http" and scope["path"] != "/healthz":
+            header = dict(scope["headers"]).get(b"authorization", b"").decode("latin-1")
+            supplied = ""
+            if header.lower().startswith("basic "):
+                try:
+                    supplied = base64.b64decode(header[6:]).decode("utf-8").split(":", 1)[1]
+                except (ValueError, IndexError):
+                    supplied = ""
+            if not secrets.compare_digest(supplied.encode("utf-8"), secret.encode("utf-8")):
+                await Response(status_code=401, headers={"WWW-Authenticate": 'Basic realm="SciAgent.ENU demo"'})(scope, receive, send)
+                return
+        await self.inner(scope, receive, send)
+
+
+app.add_middleware(DemoPassword)
 
 
 def position_of(pos: str | None) -> dict:
@@ -795,7 +804,7 @@ async def audit_upload(file: UploadFile = File(...), x_position: str | None = He
         tmp.write(data)
         path = tmp.name
     try:
-        result = audit.run_audit(path)
+        result = await run_in_threadpool(audit.run_audit, path)
     except Exception as exc:  # бұзылған немесе басқа пішімдегі Excel кез келген қате тастауы мүмкін
         raise HTTPException(400, f"Не удалось прочитать файл: {exc.__class__.__name__}") from exc
     finally:
@@ -875,7 +884,8 @@ async def _agent_call(session: str, text: str, file: UploadFile | None, x_positi
     upload = None
     if file is not None:
         upload = {"name": file.filename or "file", "data": await file.read(), "mime": file.content_type or ""}
-    return agent.message(f"{x_position}:{session}", text, upload, position)
+    # Модель мен Crossref ұзақ жауап береді: бұл уақытта сервер басқа пайдаланушыларға жауап бере беруі керек.
+    return await run_in_threadpool(agent.message, f"{x_position}:{session}", text, upload, position)
 
 
 @app.post("/api/agent/message")

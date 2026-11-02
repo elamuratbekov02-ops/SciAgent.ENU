@@ -9,4 +9,4 @@ ENV SCIAGENT_DB=/srv/storage/sciagent.db SCIAGENT_UPLOADS=/srv/storage/uploads T
 RUN useradd -m app && mkdir -p /srv/storage && chown -R app /srv/storage
 USER app
 EXPOSE 8605
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8605}"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8605} --timeout-keep-alive 75"]

@@ -17,6 +17,19 @@ function toast(text, bad) {
   toast.t = setTimeout(() => { S.toast = null; }, bad ? 6000 : 3200);
 }
 
+// Желі сирек кідіреді: оқу сұранысы 25 секундтан соң бір рет қайталанады, дерек өзгертетін сұраныс қайталанбайды.
+async function send(path, init) {
+  if (init.method !== 'GET') return fetch(path, init);
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 25000);
+  try {
+    return await fetch(path, { ...init, signal: ctrl.signal });
+  } catch (e) {
+    if (e.name === 'AbortError') return fetch(path, init);
+    throw e;
+  } finally { clearTimeout(timer); }
+}
+
 async function api(path, opts = {}) {
   const headers = { 'X-Position': S.pos };
   const init = { method: opts.method || 'GET', headers };
@@ -24,7 +37,7 @@ async function api(path, opts = {}) {
     if (opts.body instanceof FormData) init.body = opts.body;
     else { headers['Content-Type'] = 'application/json'; init.body = JSON.stringify(opts.body); }
   }
-  const res = await fetch(path, init);
+  const res = await send(path, init);
   let data = null;
   try { data = await res.json(); } catch (e) { /* JSON емес жауап */ }
   if (!res.ok && !(opts.allow || []).includes(res.status)) {

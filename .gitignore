@@ -6,3 +6,4 @@ data/sciagent.db*
 data/uploads/
 .pytest_cache/
 .claude/
+presentation/
