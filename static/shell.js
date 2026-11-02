@@ -138,10 +138,12 @@ const ModulePage = {
     const moreActive = computed(() => sections.value.more.some((m) => m.id === S.view));
     const current = computed(() => VIEWS[S.view] || Overview);
     const pick = (id) => { moreOpen.value = false; go(id); };
-    return { S, sections, moreOpen, moreActive, current, pick };
+    const roleName = computed(() => S.boot.position.label.split(' · ')[0]);
+    return { S, sections, moreOpen, moreActive, current, pick, roleName };
   },
   template: `<div>
-    <div class="head-row"><h3>Научная отчётность</h3></div>
+    <div class="head-row"><h3>Научная отчётность</h3>
+      <button class="pos-switch" @click="S.posOpen = true"><i class="pi pi-id-card"></i><span>{{ roleName }}</span><b><i class="pi pi-sync"></i> Сменить</b></button></div>
     <div class="s-toolbar">
       <button v-for="m in sections.main" :key="m.id" class="s-btn" :class="{on: S.view === m.id}" @click="pick(m.id)"><i class="pi" :class="m.icon"></i> {{ m.label }}<span v-if="m.badge" class="s-badge">{{ m.badge }}</span></button>
       <div class="dropdown" v-if="sections.more.length"><button class="s-btn" :class="{on: moreActive}" @click="moreOpen = !moreOpen">Ещё <i class="pi pi-angle-down"></i></button>
@@ -162,6 +164,8 @@ const App = {
     watch(() => S.view, () => { S.page = 'module'; });
     watch(() => S.refresh, boot);
     const setPos = async (id) => {
+      // Бет алдымен жабылады: әйтпесе ескі рөлдің беті жаңа рөлмен сұраныс жіберіп, жалған 403 шығарады.
+      S.boot = null;
       S.pos = id;
       store.set('sa_pos', id);
       S.posOpen = false;

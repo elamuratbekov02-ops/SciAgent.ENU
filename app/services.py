@@ -608,7 +608,8 @@ def days_since(iso: str | None) -> int:
     if not iso:
         return 0
     try:
-        return max(0, (dt.date.today() - dt.date.fromisoformat(iso[:10])).days)
+        # Белгілер UTC-де жазылады, сондықтан күн де UTC бойынша есептеледі.
+        return max(0, (dt.datetime.now(dt.timezone.utc).date() - dt.date.fromisoformat(iso[:10])).days)
     except ValueError:
         return 0
 

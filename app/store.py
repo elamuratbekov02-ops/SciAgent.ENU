@@ -128,7 +128,7 @@ def seed_if_empty(force: bool = False) -> bool:
         kv_set("manual:mgmt:2025", seed["manual_indicators"])
         kv_set("imported", {})
         # Науқан демода әрқашан ашық тұруы үшін мерзім бүгінгі күннен есептеледі.
-        deadline = (datetime.now(timezone.utc) + timedelta(days=21)).strftime("%Y-%m-%d")
+        deadline = (datetime.now() + timedelta(days=21)).strftime("%Y-%m-%d")
         c.execute("INSERT INTO campaigns(year,deadline,title,created_by) VALUES(?,?,?,?)",
                   (2025, deadline, "Отчёт НИР за 2025 год", "Департамент науки"))
         stats = {"audit": "согласовано", "tourism": "на согласовании", "acc": "создано", "fin": "согласовано", "econ": "создано"}
