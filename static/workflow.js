@@ -148,7 +148,7 @@ const MyResults = {
     <AddResult/>
     <div class="card path-card"><div class="card-head"><div><h2>Что будет дальше</h2><div class="small muted">Весь путь записи виден здесь. Вносить заново и пересылать по почте ничего не нужно.</div></div></div><div class="card-body"><RouteLine :route="route" first="Вы" status="создано"/></div></div>
     <div class="notice campaign-note" v-if="data.campaign.deadline">
-      <div><b>{{ data.campaign.title }}.</b> Срок: {{ data.campaign.deadline }}<template v-if="data.campaign.days_left >= 0">, осталось дней: {{ data.campaign.days_left }}</template>. В отчёт войдут согласованные записи: {{ data.in_report }}.
+      <div><b>{{ data.campaign.title }}.</b> Срок: {{ data.campaign.deadline.split('-').reverse().join('.') }}<template v-if="data.campaign.days_left >= 0">, осталось дней: {{ data.campaign.days_left }}</template>. В отчёт войдут согласованные записи: {{ data.in_report }}.
         <span v-if="data.counts['создано'] || data.counts['на доработке']"> Не отправлено: {{ (data.counts['создано'] || 0) + (data.counts['на доработке'] || 0) }}.</span></div>
       <button v-if="!data.attested_at" class="btn sm" @click="attest"><i class="pi pi-check-circle"></i> Мой список верен</button>
       <span v-else class="small" style="color:var(--good);white-space:nowrap"><i class="pi pi-check-circle"></i> Список подтверждён</span>

@@ -401,6 +401,10 @@ pre.code { background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 10p
   .viz-plan-state { display: none; }
   .head-row { flex-wrap: wrap; gap: 8px; }
   .head-row h3 { font-size: 20px; }
+  .grid-2 > * { min-width: 0; }
+  .grid-2 > .card, .viz-card { min-width: 0; overflow-x: auto; }
+  .issue { flex-wrap: wrap; }
+  select.inp { max-width: 100%; }
   .pos-switch { margin-left: 0; max-width: 100%; }
   .pos-switch span { overflow: hidden; text-overflow: ellipsis; }
 }

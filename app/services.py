@@ -580,7 +580,7 @@ def funnel(unit: str, year: int) -> dict:
 
 def remind(position: dict, unit: str | None, person: str | None, year: int = 2025) -> int:
     camp = store.campaign(year) or {}
-    deadline = camp.get("deadline", "")
+    deadline = ".".join(reversed(camp.get("deadline", "").split("-")))
     sent = 0
     if person:
         store.notify(f"Отчёт НИР за {year} год: у вас есть записи, которые нужно подтвердить или отправить. Срок: {deadline}.", person=person, link="home")
@@ -988,7 +988,7 @@ def approve_many(ids: list[str], position: dict) -> dict:
 def remind_all(position: dict, year: int = 2025, automatic: bool = False) -> dict:
     """Әркімге өз ісін еске салады: авторға черновик, келісушіге кезек, жауаптыға есеп."""
     camp = store.campaign(year) or {}
-    deadline = camp.get("deadline", "")
+    deadline = ".".join(reversed(camp.get("deadline", "").split("-")))
     persons = store.persons()
     rows = store.records(unit="mgmt", year=year)
     sent = {"authors": 0, "approvers": 0, "responsible": 0}

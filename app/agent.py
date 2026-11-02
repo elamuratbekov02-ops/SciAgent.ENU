@@ -793,7 +793,7 @@ def _limited_intent(text: str, position: dict, trace: Trace) -> str | None:
     low = text.lower()
     if re.search(r"как (внести|добавить|загрузить|сдать|отправить)|куда (внести|загрузить|добавить)|қалай (сал|енгіз|жүкте)|как это работает", low):
         return HOW_TO
-    if re.search(r"на (моём|моем|мое|моё) согласовании|что (ждёт|ждет) (моего|согласования)|кто ждёт|келісу кезег", low):
+    if re.search(r"на (моём|моем|мое|моё) согласовании|что (ждёт|ждет) (моего|согласования)|что (мне )?(нужно |надо )?согласовать|кто ждёт|келісу кезег", low):
         trace.step("Смотрю очередь согласования")
         d = queue_summary(position)
         if not d["waiting"]:
@@ -807,9 +807,21 @@ def _limited_intent(text: str, position: dict, trace: Trace) -> str | None:
             return f"Все ваши записи согласованы. В отчёте за этот год: {d['in_report_this_year']}."
         lines = [f"• {i['title'][:80]}: {i['stage'].lower()}" + (f", {i['days_at_stage']} дн." if i["days_at_stage"] else "") + (f". Причина: {i['return_reason']}" if i["return_reason"] else "") for i in d["items"][:8]]
         return f"В отчёте за этот год: {d['in_report_this_year']}. Ещё не согласовано:\n" + "\n".join(lines)
+    if re.search(r"кто .*не (отправил|подтвердил|сдал|внес|внёс)|кім .*(жібермед|растамад)", low) and position.get("role") in MANAGERS:
+        trace.step("Смотрю, кто ещё не отправил записи")
+        pending = services.campaign_status(2025)["pending"]
+        if not pending:
+            return "Все авторы отправили и подтвердили свои записи."
+        return f"Ещё не отправили или не подтвердили записи: {len(pending)}.\n" + "\n".join(f"• {p['name']}: {p['count']}" for p in pending[:10])
+    if position.get("role") == "supervisor" and re.search(r"мо(и|их) (обучающ|студент|магистрант|докторант)|менің (білім алушы|студент)", low):
+        spec = chart_for("supervision", position)
+        trace.step("Считаю показатели")
+        trace.chart(spec)
+        return f"{spec['title']}. Данные взяты из базы записей."
     if re.search(CHART_WORDS, low):
         kind = _chart_kind(low)
-        spec = chart_for(kind, position)
+        # Заведующему нечего сравнивать между кафедрами: показываем его кафедру, а не отказ.
+        spec = chart_for(kind, position) or (chart_for("overview", position) if position.get("role") in MANAGERS else None)
         if not spec:
             return "Такая диаграмма доступна руководству кафедры. Могу показать ваши записи по видам."
         trace.step("Считаю показатели")

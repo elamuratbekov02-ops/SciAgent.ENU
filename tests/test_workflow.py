@@ -368,6 +368,18 @@ def test_audit_import_goes_to_head_for_approval(client):
     assert analytics.overview("mgmt", 2025)["raw"] == before
 
 
+def test_assistant_without_key_answers_common_manager_questions(client):
+    def ask(text, pos):
+        return client.post("/api/agent/message", data={"session": "q", "text": text}, headers=H(pos)).json()
+
+    chart = ask("Покажи публикации кафедры диаграммой", "head")
+    assert chart["charts"] and "доступна" not in chart["reply"]
+    assert "Ждут решения" in ask("Что мне согласовать?", "head")["reply"]
+    assert "Ещё не отправили" in ask("Кто ещё не отправил список?", "head")["reply"]
+    assert "Ещё не отправили" not in ask("Кто ещё не отправил список?", "student")["reply"]
+    assert ask("Кто из моих обучающихся опубликовался?", "teacher")["charts"]
+
+
 def test_importing_the_same_report_adds_no_untitled_rows():
     from app import audit
 
