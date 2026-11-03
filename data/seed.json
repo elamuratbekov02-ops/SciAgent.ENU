@@ -472,15 +472,14 @@
   },
   {
    "id": "p004",
-   "display_name": "Габдуллин А.",
-   "display_latin": "Gabdullin A.",
+   "display_name": "Студент-01",
+   "display_latin": "Student-01",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Gabdullin A.",
-    "Габдуллин А",
-    "Габдуллин А."
+    "Студент-01",
+    "Student-01"
    ],
    "group": "",
    "degree": "",
@@ -515,15 +514,14 @@
   },
   {
    "id": "p006",
-   "display_name": "Конурбаева А.",
-   "display_latin": "Konurbaeva A.",
+   "display_name": "Студент-02",
+   "display_latin": "Student-02",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Konurbaeva A.",
-    "Конурбаева А",
-    "Конурбаева А."
+    "Студент-02",
+    "Student-02"
    ],
    "group": "",
    "degree": "",
@@ -535,15 +533,14 @@
   },
   {
    "id": "p007",
-   "display_name": "Бейсембай Д.",
-   "display_latin": "Beisembai D.",
+   "display_name": "Студент-03",
+   "display_latin": "Student-03",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Beisembai D.",
-    "Бейсембай Д",
-    "Бейсембай Д."
+    "Студент-03",
+    "Student-03"
    ],
    "group": "",
    "degree": "",
@@ -555,15 +552,14 @@
   },
   {
    "id": "p008",
-   "display_name": "Жукова Е.",
-   "display_latin": "Zhukova E.",
+   "display_name": "Студент-04",
+   "display_latin": "Student-04",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Zhukova E.",
-    "Жукова Е",
-    "Жукова Е."
+    "Студент-04",
+    "Student-04"
    ],
    "group": "",
    "degree": "",
@@ -575,15 +571,14 @@
   },
   {
    "id": "p009",
-   "display_name": "Жамгырчыева Т.",
-   "display_latin": "Zhamgyrchyeva T.",
+   "display_name": "Студент-05",
+   "display_latin": "Student-05",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Zhamgyrchyeva T.",
-    "Жамгырчыева Т",
-    "Жамгырчыева Т."
+    "Студент-05",
+    "Student-05"
    ],
    "group": "",
    "degree": "",
@@ -595,15 +590,14 @@
   },
   {
    "id": "p010",
-   "display_name": "Каиргельды А.",
-   "display_latin": "Kairgeldy A.",
+   "display_name": "Студент-06",
+   "display_latin": "Student-06",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Kairgeldy A.",
-    "Каиргельды А",
-    "Каиргельды А."
+    "Студент-06",
+    "Student-06"
    ],
    "group": "",
    "degree": "",
@@ -615,15 +609,14 @@
   },
   {
    "id": "p011",
-   "display_name": "Әділ К.",
-   "display_latin": "Adil K.",
+   "display_name": "Студент-07",
+   "display_latin": "Student-07",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Adil K.",
-    "Әділ К",
-    "Әділ К."
+    "Студент-07",
+    "Student-07"
    ],
    "group": "",
    "degree": "",
@@ -635,15 +628,14 @@
   },
   {
    "id": "p012",
-   "display_name": "Демеева Г.",
-   "display_latin": "Demeeva G.",
+   "display_name": "Студент-08",
+   "display_latin": "Student-08",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Demeeva G.",
-    "Демеева Г",
-    "Демеева Г."
+    "Студент-08",
+    "Student-08"
    ],
    "group": "",
    "degree": "",
@@ -655,15 +647,14 @@
   },
   {
    "id": "p013",
-   "display_name": "Жусупова К.",
-   "display_latin": "Zhusupova K.",
+   "display_name": "Студент-09",
+   "display_latin": "Student-09",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Zhusupova K.",
-    "Жусупова К",
-    "Жусупова К."
+    "Студент-09",
+    "Student-09"
    ],
    "group": "",
    "degree": "",
@@ -675,16 +666,14 @@
   },
   {
    "id": "p014",
-   "display_name": "Малабаева А.Ғ.",
-   "display_latin": "Malabaeva A.G.",
+   "display_name": "Студент-10",
+   "display_latin": "Student-10",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Malabaeva A.G.",
-    "Малабаева А",
-    "Малабаева А.Ғ.",
-    "Қалыбаева А. Ғ"
+    "Студент-10",
+    "Student-10"
    ],
    "group": "",
    "degree": "",
@@ -696,15 +685,14 @@
   },
   {
    "id": "p015",
-   "display_name": "Сухарский М.",
-   "display_latin": "Sukharskii M.",
+   "display_name": "Студент-11",
+   "display_latin": "Student-11",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Sukharskii M.",
-    "Сухарский М",
-    "Сухарский М."
+    "Студент-11",
+    "Student-11"
    ],
    "group": "",
    "degree": "",
@@ -716,15 +704,14 @@
   },
   {
    "id": "p016",
-   "display_name": "Жанин С.",
-   "display_latin": "Zhanin S.",
+   "display_name": "Студент-12",
+   "display_latin": "Student-12",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Zhanin S.",
-    "Жанин С",
-    "Жанин С."
+    "Студент-12",
+    "Student-12"
    ],
    "group": "",
    "degree": "",
@@ -736,14 +723,14 @@
   },
   {
    "id": "p017",
-   "display_name": "Валийахметова К.А.",
-   "display_latin": "Valiiakhmetova K.A.",
+   "display_name": "Студент-13",
+   "display_latin": "Student-13",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Valiiakhmetova K.A.",
-    "Валийахметова К.А."
+    "Студент-13",
+    "Student-13"
    ],
    "group": "",
    "degree": "",
@@ -798,15 +785,14 @@
   },
   {
    "id": "p020",
-   "display_name": "Боранкул З.Т.",
-   "display_latin": "Borankul Z.T.",
+   "display_name": "Студент-14",
+   "display_latin": "Student-14",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Borankul Z.T.",
-    "Боранкул З.Т",
-    "Боранкул З.Т."
+    "Студент-14",
+    "Student-14"
    ],
    "group": "",
    "degree": "",
@@ -818,13 +804,14 @@
   },
   {
    "id": "p021",
-   "display_name": "Rezayee",
-   "display_latin": "Rezayee",
+   "display_name": "Студент-15",
+   "display_latin": "Student-15",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Rezayee"
+    "Студент-15",
+    "Student-15"
    ],
    "group": "",
    "degree": "",
@@ -857,16 +844,14 @@
   },
   {
    "id": "p023",
-   "display_name": "Оңғарбаев Н.",
-   "display_latin": "Ongarbaev N.",
+   "display_name": "Студент-16",
+   "display_latin": "Student-16",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Ongarbaev N.",
-    "Оңғарбаев Н",
-    "Оңғарбаев Н.",
-    "Оңғарбаев Нариман"
+    "Студент-16",
+    "Student-16"
    ],
    "group": "МЖБ-41",
    "degree": "",
@@ -878,16 +863,14 @@
   },
   {
    "id": "p024",
-   "display_name": "Кенжебаева А.",
-   "display_latin": "Kenzhebaeva A.",
+   "display_name": "Студент-17",
+   "display_latin": "Student-17",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Kenzhebaeva A.",
-    "Кенжебаева А",
-    "Кенжебаева А.",
-    "Кужебаева А"
+    "Студент-17",
+    "Student-17"
    ],
    "group": "",
    "degree": "",
@@ -921,15 +904,14 @@
   },
   {
    "id": "p026",
-   "display_name": "Сапиолдаева Б.Қ.",
-   "display_latin": "Sapioldaeva B.K.",
+   "display_name": "Студент-18",
+   "display_latin": "Student-18",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Sapioldaeva B.K.",
-    "Сапиолдаева Б.Қ",
-    "Сапиолдаева Б.Қ."
+    "Студент-18",
+    "Student-18"
    ],
    "group": "",
    "degree": "",
@@ -941,15 +923,14 @@
   },
   {
    "id": "p027",
-   "display_name": "Жұманова Қ.І.",
-   "display_latin": "Zhumanova K.I.",
+   "display_name": "Студент-19",
+   "display_latin": "Student-19",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Zhumanova K.I.",
-    "Жұманова Қ. І",
-    "Жұманова Қ.І."
+    "Студент-19",
+    "Student-19"
    ],
    "group": "",
    "degree": "",
@@ -983,15 +964,14 @@
   },
   {
    "id": "p029",
-   "display_name": "Алшынбеков Б.",
-   "display_latin": "Alshynbekov B.",
+   "display_name": "Студент-20",
+   "display_latin": "Student-20",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Alshynbekov B.",
-    "Алшынбеков Б",
-    "Алшынбеков Б."
+    "Студент-20",
+    "Student-20"
    ],
    "group": "",
    "degree": "",
@@ -1003,15 +983,14 @@
   },
   {
    "id": "p030",
-   "display_name": "Жалғасбаев Н.",
-   "display_latin": "Zhalgasbaev N.",
+   "display_name": "Студент-21",
+   "display_latin": "Student-21",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Zhalgasbaev N.",
-    "Жалғасбаев Н",
-    "Жалғасбаев Н."
+    "Студент-21",
+    "Student-21"
    ],
    "group": "",
    "degree": "",
@@ -1023,15 +1002,14 @@
   },
   {
    "id": "p031",
-   "display_name": "Сагынтаева А.",
-   "display_latin": "Sagyntaeva A.",
+   "display_name": "Студент-22",
+   "display_latin": "Student-22",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Sagyntaeva A.",
-    "Сагынтаева А",
-    "Сагынтаева А."
+    "Студент-22",
+    "Student-22"
    ],
    "group": "",
    "degree": "",
@@ -1043,15 +1021,14 @@
   },
   {
    "id": "p032",
-   "display_name": "Уткирова А.",
-   "display_latin": "Utkirova A.",
+   "display_name": "Студент-23",
+   "display_latin": "Student-23",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Utkirova A.",
-    "Уткирова А",
-    "Уткирова А."
+    "Студент-23",
+    "Student-23"
    ],
    "group": "",
    "degree": "",
@@ -1063,15 +1040,14 @@
   },
   {
    "id": "p033",
-   "display_name": "Ахметқалиева Д.",
-   "display_latin": "Akhmetkalieva D.",
+   "display_name": "Студент-24",
+   "display_latin": "Student-24",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Akhmetkalieva D.",
-    "Ахметқалиева Д",
-    "Ахметқалиева Д."
+    "Студент-24",
+    "Student-24"
    ],
    "group": "",
    "degree": "",
@@ -1083,15 +1059,14 @@
   },
   {
    "id": "p034",
-   "display_name": "Cембек А.Д.",
-   "display_latin": "Cembek A.D.",
+   "display_name": "Студент-25",
+   "display_latin": "Student-25",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Cembek A.D.",
-    "Cембек А. Д",
-    "Cембек А.Д."
+    "Студент-25",
+    "Student-25"
    ],
    "group": "",
    "degree": "",
@@ -1124,15 +1099,14 @@
   },
   {
    "id": "p036",
-   "display_name": "Салық А.",
-   "display_latin": "Salyk A.",
+   "display_name": "Студент-26",
+   "display_latin": "Student-26",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Salyk A.",
-    "Салық А",
-    "Салық А."
+    "Студент-26",
+    "Student-26"
    ],
    "group": "",
    "degree": "",
@@ -1144,15 +1118,14 @@
   },
   {
    "id": "p037",
-   "display_name": "Мусағалиқызы А.",
-   "display_latin": "Musagalikyzy A.",
+   "display_name": "Студент-27",
+   "display_latin": "Student-27",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Musagalikyzy A.",
-    "Мусағалиқызы А",
-    "Мусағалиқызы А."
+    "Студент-27",
+    "Student-27"
    ],
    "group": "",
    "degree": "",
@@ -1187,15 +1160,14 @@
   },
   {
    "id": "p039",
-   "display_name": "Қожаназаров Ә.",
-   "display_latin": "Kozhanazarov A.",
+   "display_name": "Студент-28",
+   "display_latin": "Student-28",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Kozhanazarov A.",
-    "Қожаназаров Ә",
-    "Қожаназаров Ә."
+    "Студент-28",
+    "Student-28"
    ],
    "group": "",
    "degree": "",
@@ -1207,15 +1179,14 @@
   },
   {
    "id": "p040",
-   "display_name": "Айқынұлы Е.",
-   "display_latin": "Aikynuly E.",
+   "display_name": "Студент-29",
+   "display_latin": "Student-29",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Aikynuly E.",
-    "Айқынұлы Е",
-    "Айқынұлы Е."
+    "Студент-29",
+    "Student-29"
    ],
    "group": "",
    "degree": "",
@@ -1227,15 +1198,14 @@
   },
   {
    "id": "p041",
-   "display_name": "Тоқмағанбет А.",
-   "display_latin": "Tokmaganbet A.",
+   "display_name": "Студент-30",
+   "display_latin": "Student-30",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Tokmaganbet A.",
-    "Тоқмағанбет А",
-    "Тоқмағанбет А."
+    "Студент-30",
+    "Student-30"
    ],
    "group": "",
    "degree": "",
@@ -1247,15 +1217,14 @@
   },
   {
    "id": "p042",
-   "display_name": "Төлегенов А.С.",
-   "display_latin": "Tolegenov A.S.",
+   "display_name": "Студент-31",
+   "display_latin": "Student-31",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Tolegenov A.S.",
-    "Төлегенов А. С.",
-    "Төлегенов А.С."
+    "Студент-31",
+    "Student-31"
    ],
    "group": "МЖБ-21",
    "degree": "",
@@ -1267,15 +1236,14 @@
   },
   {
    "id": "p043",
-   "display_name": "Жұмаділ Н.Ж.",
-   "display_latin": "Zhumadil N.Z.",
+   "display_name": "Студент-32",
+   "display_latin": "Student-32",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Zhumadil N.Z.",
-    "Жұмаділ Н.Ж",
-    "Жұмаділ Н.Ж."
+    "Студент-32",
+    "Student-32"
    ],
    "group": "МЖБ-21",
    "degree": "",
@@ -1287,15 +1255,14 @@
   },
   {
    "id": "p044",
-   "display_name": "Ержанова А.Ж.",
-   "display_latin": "Erzhanova A.Z.",
+   "display_name": "Студент-33",
+   "display_latin": "Student-33",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Erzhanova A.Z.",
-    "Ержанова А.Ж.",
-    "Ержанова Акмаржан Жанатовна"
+    "Студент-33",
+    "Student-33"
    ],
    "group": "МН-41",
    "degree": "",
@@ -1307,15 +1274,14 @@
   },
   {
    "id": "p045",
-   "display_name": "Алтынбек Ж.",
-   "display_latin": "Altynbek Z.",
+   "display_name": "Студент-34",
+   "display_latin": "Student-34",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Altynbek Z.",
-    "Алтынбек Ж.",
-    "Алтынбек Жанель"
+    "Студент-34",
+    "Student-34"
    ],
    "group": "3 курс 6В04101-Менеджмент",
    "degree": "",
@@ -1327,15 +1293,14 @@
   },
   {
    "id": "p046",
-   "display_name": "Мухамечанова Д.Б.",
-   "display_latin": "Mukhamechanova D.B.",
+   "display_name": "Студент-35",
+   "display_latin": "Student-35",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Mukhamechanova D.B.",
-    "Мухамечанова Д.Б",
-    "Мухамечанова Д.Б."
+    "Студент-35",
+    "Student-35"
    ],
    "group": "2 курс 6В04101-Менеджмент",
    "degree": "",
@@ -1347,15 +1312,14 @@
   },
   {
    "id": "p047",
-   "display_name": "Амиш А.С.",
-   "display_latin": "Amish A.S.",
+   "display_name": "Студент-36",
+   "display_latin": "Student-36",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Amish A.S.",
-    "Амиш А.С",
-    "Амиш А.С."
+    "Студент-36",
+    "Student-36"
    ],
    "group": "2 курс 6В04101-Менеджмент",
    "degree": "",
@@ -1367,15 +1331,14 @@
   },
   {
    "id": "p048",
-   "display_name": "Даулетьяр М.А.",
-   "display_latin": "Dauletyar M.A.",
+   "display_name": "Студент-37",
+   "display_latin": "Student-37",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Dauletyar M.A.",
-    "Даулетьяр М.А",
-    "Даулетьяр М.А."
+    "Студент-37",
+    "Student-37"
    ],
    "group": "2 курс 6В04101-Менеджмент",
    "degree": "",
@@ -1387,15 +1350,14 @@
   },
   {
    "id": "p049",
-   "display_name": "Башар М.",
-   "display_latin": "Bashar M.",
+   "display_name": "Студент-38",
+   "display_latin": "Student-38",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Bashar M.",
-    "Башар М.",
-    "Башар Мадина"
+    "Студент-38",
+    "Student-38"
    ],
    "group": "ГМУ- 31",
    "degree": "",
@@ -1407,15 +1369,14 @@
   },
   {
    "id": "p050",
-   "display_name": "Аманжол А.",
-   "display_latin": "Amanzhol A.",
+   "display_name": "Студент-39",
+   "display_latin": "Student-39",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Amanzhol A.",
-    "Аманжол А",
-    "Аманжол А."
+    "Студент-39",
+    "Student-39"
    ],
    "group": "МН-31",
    "degree": "",
@@ -1427,15 +1388,14 @@
   },
   {
    "id": "p051",
-   "display_name": "Мырзаберген А.",
-   "display_latin": "Myrzabergen A.",
+   "display_name": "Студент-40",
+   "display_latin": "Student-40",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Myrzabergen A.",
-    "Мырзаберген А",
-    "Мырзаберген А."
+    "Студент-40",
+    "Student-40"
    ],
    "group": "МН-31",
    "degree": "",
@@ -1447,15 +1407,14 @@
   },
   {
    "id": "p052",
-   "display_name": "Кусманова А.",
-   "display_latin": "Kusmanova A.",
+   "display_name": "Студент-41",
+   "display_latin": "Student-41",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Kusmanova A.",
-    "Кусманова А",
-    "Кусманова А."
+    "Студент-41",
+    "Student-41"
    ],
    "group": "МН-31",
    "degree": "",
@@ -1467,15 +1426,14 @@
   },
   {
    "id": "p053",
-   "display_name": "Ошакбай М.",
-   "display_latin": "Oshakbai M.",
+   "display_name": "Студент-42",
+   "display_latin": "Student-42",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Oshakbai M.",
-    "Ошакбай М",
-    "Ошакбай М."
+    "Студент-42",
+    "Student-42"
    ],
    "group": "МН-31",
    "degree": "",
@@ -1487,15 +1445,14 @@
   },
   {
    "id": "p054",
-   "display_name": "Әндір Д.А.",
-   "display_latin": "Andir D.A.",
+   "display_name": "Студент-43",
+   "display_latin": "Student-43",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Andir D.A.",
-    "Әндір Д.А.",
-    "Әндір Дидар Алуадинқызы"
+    "Студент-43",
+    "Student-43"
    ],
    "group": "МН-33",
    "degree": "",
@@ -1507,15 +1464,14 @@
   },
   {
    "id": "p055",
-   "display_name": "Дүйсен Ж.Н.",
-   "display_latin": "Duisen Z.N.",
+   "display_name": "Студент-44",
+   "display_latin": "Student-44",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Duisen Z.N.",
-    "Дүйсен Ж.Н.",
-    "Дүйсен Жансая Нургалиқызы"
+    "Студент-44",
+    "Student-44"
    ],
    "group": "МЖБ-41",
    "degree": "",
@@ -1527,15 +1483,14 @@
   },
   {
    "id": "p056",
-   "display_name": "Сагындыкова А.",
-   "display_latin": "Sagyndykova A.",
+   "display_name": "Студент-45",
+   "display_latin": "Student-45",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Sagyndykova A.",
-    "Сагындыкова А.",
-    "Сагындыкова Аружан"
+    "Студент-45",
+    "Student-45"
    ],
    "group": "МН-34",
    "degree": "",
@@ -1547,15 +1502,14 @@
   },
   {
    "id": "p057",
-   "display_name": "Акрапов Д.",
-   "display_latin": "Akrapov D.",
+   "display_name": "Студент-46",
+   "display_latin": "Student-46",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Akrapov D.",
-    "Акрапов Д.",
-    "Акрапов Дастан"
+    "Студент-46",
+    "Student-46"
    ],
    "group": "МН-34",
    "degree": "",
@@ -1567,15 +1521,14 @@
   },
   {
    "id": "p058",
-   "display_name": "Егембердиев И.",
-   "display_latin": "Egemberdiev I.",
+   "display_name": "Студент-47",
+   "display_latin": "Student-47",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Egemberdiev I.",
-    "Егембердиев И.",
-    "Егембердиев Ильяс"
+    "Студент-47",
+    "Student-47"
    ],
    "group": "МН-34",
    "degree": "",
@@ -1587,15 +1540,14 @@
   },
   {
    "id": "p059",
-   "display_name": "Тутинова Д.",
-   "display_latin": "Tutinova D.",
+   "display_name": "Студент-48",
+   "display_latin": "Student-48",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Tutinova D.",
-    "Тутинова Д.",
-    "Тутинова Дарина"
+    "Студент-48",
+    "Student-48"
    ],
    "group": "МН-22",
    "degree": "",
@@ -1607,15 +1559,14 @@
   },
   {
    "id": "p060",
-   "display_name": "Мирамов С.Ә.",
-   "display_latin": "Miramov S.A.",
+   "display_name": "Студент-49",
+   "display_latin": "Student-49",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Miramov S.A.",
-    "Мирамов С.Ә",
-    "Мирамов С.Ә."
+    "Студент-49",
+    "Student-49"
    ],
    "group": "2 курс 6В04101-Менеджмент",
    "degree": "",
@@ -1627,15 +1578,14 @@
   },
   {
    "id": "p061",
-   "display_name": "Найманов А.С.",
-   "display_latin": "Naimanov A.S.",
+   "display_name": "Студент-50",
+   "display_latin": "Student-50",
    "full_name": "",
    "role": "student",
    "unit": "mgmt",
    "aliases": [
-    "Naimanov A.S.",
-    "А.С.Найманов",
-    "Найманов А.С."
+    "Студент-50",
+    "Student-50"
    ],
    "group": "4 курс",
    "degree": "",
@@ -1707,13 +1657,14 @@
   },
   {
    "id": "p065",
-   "display_name": "Kenzhin Z",
-   "display_latin": "Kenzhin Z",
+   "display_name": "Докторант-01",
+   "display_latin": "Doctoral-01",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Kenzhin Z"
+    "Докторант-01",
+    "Doctoral-01"
    ],
    "group": "",
    "degree": "",
@@ -2692,15 +2643,14 @@
   },
   {
    "id": "p116",
-   "display_name": "Куангалиева Т.К.",
-   "display_latin": "Kuangaliyeva T",
+   "display_name": "Докторант-02",
+   "display_latin": "Doctoral-02",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Kuangaliyeva T",
-    "Куангалиева Т.К",
-    "Куангалиева Т.К."
+    "Докторант-02",
+    "Doctoral-02"
    ],
    "group": "",
    "degree": "",
@@ -2792,16 +2742,14 @@
   },
   {
    "id": "p121",
-   "display_name": "Кожамуратов Н.К.",
-   "display_latin": "Kozhamuratov N",
+   "display_name": "Докторант-03",
+   "display_latin": "Doctoral-03",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Kozhamuratov N",
-    "Кожамуратов Н. К",
-    "Кожамуратов Н.К",
-    "Кожамуратов Н.К."
+    "Докторант-03",
+    "Doctoral-03"
    ],
    "group": "",
    "degree": "",
@@ -2966,16 +2914,14 @@
   },
   {
    "id": "p130",
-   "display_name": "Есейкызы А.",
-   "display_latin": "Eseikyzy A.",
+   "display_name": "Докторант-04",
+   "display_latin": "Doctoral-04",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Eseikyzy A.",
-    "Есейкызы А",
-    "Есейкызы А.",
-    "Есейқызы Aрай"
+    "Докторант-04",
+    "Doctoral-04"
    ],
    "group": "",
    "degree": "",
@@ -3187,16 +3133,14 @@
   },
   {
    "id": "p141",
-   "display_name": "Сальжанова З.А.",
-   "display_latin": "Salzhanova Z.A.",
+   "display_name": "Докторант-05",
+   "display_latin": "Doctoral-05",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Salzhanova Z.A.",
-    "З.А. Сальжанова",
-    "Сальжанова З.А",
-    "Сальжанова З.А."
+    "Докторант-05",
+    "Doctoral-05"
    ],
    "group": "",
    "degree": "",
@@ -3248,15 +3192,14 @@
   },
   {
    "id": "p144",
-   "display_name": "Мухамеджанов Ж.У.",
-   "display_latin": "Mukhamedzhanov Z.U.",
+   "display_name": "Докторант-06",
+   "display_latin": "Doctoral-06",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Mukhamedzhanov Z.U.",
-    "Мухамеджанов Ж.У",
-    "Мухамеджанов Ж.У."
+    "Докторант-06",
+    "Doctoral-06"
    ],
    "group": "",
    "degree": "",
@@ -3268,15 +3211,14 @@
   },
   {
    "id": "p145",
-   "display_name": "Досжан Р.Д.",
-   "display_latin": "Doszhan R.D.",
+   "display_name": "Докторант-07",
+   "display_latin": "Doctoral-07",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Doszhan R.D.",
-    "Досжан Р.Д",
-    "Досжан Р.Д."
+    "Докторант-07",
+    "Doctoral-07"
    ],
    "group": "",
    "degree": "",
@@ -3498,16 +3440,14 @@
   },
   {
    "id": "p157",
-   "display_name": "Курманов А.М.",
-   "display_latin": "Kurmanov A.M.",
+   "display_name": "Магистрант-01",
+   "display_latin": "Master-01",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Kurmanov A.M.",
-    "Курманов А",
-    "Курманов А.М",
-    "Курманов А.М."
+    "Магистрант-01",
+    "Master-01"
    ],
    "group": "",
    "degree": "",
@@ -3579,15 +3519,14 @@
   },
   {
    "id": "p161",
-   "display_name": "Асылханова Т.К.",
-   "display_latin": "Asylkhanova T.K.",
+   "display_name": "Магистрант-02",
+   "display_latin": "Master-02",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Asylkhanova T.K.",
-    "Асылханова Т.К",
-    "Асылханова Т.К."
+    "Магистрант-02",
+    "Master-02"
    ],
    "group": "",
    "degree": "",
@@ -3599,15 +3538,14 @@
   },
   {
    "id": "p162",
-   "display_name": "Абильдаева М.Б.",
-   "display_latin": "Abildaeva M.B.",
+   "display_name": "Магистрант-03",
+   "display_latin": "Master-03",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Abildaeva M.B.",
-    "Абильдаева М.Б",
-    "Абильдаева М.Б."
+    "Магистрант-03",
+    "Master-03"
    ],
    "group": "",
    "degree": "",
@@ -3619,15 +3557,14 @@
   },
   {
    "id": "p163",
-   "display_name": "Мықтыбай М.",
-   "display_latin": "Myktybai M.",
+   "display_name": "Магистрант-04",
+   "display_latin": "Master-04",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Myktybai M.",
-    "Мықтыбай М",
-    "Мықтыбай М."
+    "Магистрант-04",
+    "Master-04"
    ],
    "group": "магистрант МЖБ 1 курс",
    "degree": "",
@@ -3639,15 +3576,14 @@
   },
   {
    "id": "p164",
-   "display_name": "Бақтыбай М.",
-   "display_latin": "Baktybai M.",
+   "display_name": "Магистрант-05",
+   "display_latin": "Master-05",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Baktybai M.",
-    "Бақтыбай М",
-    "Бақтыбай М."
+    "Магистрант-05",
+    "Master-05"
    ],
    "group": "",
    "degree": "",
@@ -3659,15 +3595,14 @@
   },
   {
    "id": "p165",
-   "display_name": "Балгынбек Д.",
-   "display_latin": "Balgynbek D.",
+   "display_name": "Магистрант-06",
+   "display_latin": "Master-06",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Balgynbek D.",
-    "Балгынбек Д",
-    "Балгынбек Д."
+    "Магистрант-06",
+    "Master-06"
    ],
    "group": "",
    "degree": "",
@@ -3679,15 +3614,14 @@
   },
   {
    "id": "p166",
-   "display_name": "Архатова Г.А.",
-   "display_latin": "Arkhatova G.A.",
+   "display_name": "Магистрант-07",
+   "display_latin": "Master-07",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Arkhatova G.A.",
-    "Архатова Г.А",
-    "Архатова Г.А."
+    "Магистрант-07",
+    "Master-07"
    ],
    "group": "",
    "degree": "",
@@ -3699,15 +3633,14 @@
   },
   {
    "id": "p167",
-   "display_name": "Максут Т.",
-   "display_latin": "Maksut T.",
+   "display_name": "Магистрант-08",
+   "display_latin": "Master-08",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Maksut T.",
-    "Максут Т.",
-    "Максут Томирис"
+    "Магистрант-08",
+    "Master-08"
    ],
    "group": "",
    "degree": "",
@@ -3719,16 +3652,14 @@
   },
   {
    "id": "p168",
-   "display_name": "Исмагулова Б.",
-   "display_latin": "Ismagulova B.",
+   "display_name": "Магистрант-09",
+   "display_latin": "Master-09",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Ismagulova B.",
-    "Исмагулова Б.",
-    "Исмагулова Бакытнур",
-    "Исмагулова Бахыт"
+    "Магистрант-09",
+    "Master-09"
    ],
    "group": "",
    "degree": "",
@@ -3740,16 +3671,14 @@
   },
   {
    "id": "p169",
-   "display_name": "Қалхаман Қ.Н.",
-   "display_latin": "Kalkhaman K.N.",
+   "display_name": "Магистрант-10",
+   "display_latin": "Master-10",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Kalkhaman K.N.",
-    "Қалхаман Қ.Н",
-    "Қалхаман Қ.Н.",
-    "Қалхаман Қалмахан"
+    "Магистрант-10",
+    "Master-10"
    ],
    "group": "",
    "degree": "",
@@ -3761,15 +3690,14 @@
   },
   {
    "id": "p170",
-   "display_name": "Абдумавленова Т.",
-   "display_latin": "Abdumavlenova T.",
+   "display_name": "Магистрант-11",
+   "display_latin": "Master-11",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Abdumavlenova T.",
-    "Абдумавленова Т.",
-    "Абдумавленова Тахмина"
+    "Магистрант-11",
+    "Master-11"
    ],
    "group": "",
    "degree": "",
@@ -3781,15 +3709,14 @@
   },
   {
    "id": "p171",
-   "display_name": "Өскенбаева М.Б.",
-   "display_latin": "Oskenbaeva M.B.",
+   "display_name": "Магистрант-12",
+   "display_latin": "Master-12",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Oskenbaeva M.B.",
-    "Өскенбаева М.Б",
-    "Өскенбаева М.Б."
+    "Магистрант-12",
+    "Master-12"
    ],
    "group": "",
    "degree": "",
@@ -3801,15 +3728,14 @@
   },
   {
    "id": "p172",
-   "display_name": "Умарова А.М.",
-   "display_latin": "Umarova A.M.",
+   "display_name": "Магистрант-13",
+   "display_latin": "Master-13",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Umarova A.M.",
-    "Умарова А.М",
-    "Умарова А.М."
+    "Магистрант-13",
+    "Master-13"
    ],
    "group": "",
    "degree": "",
@@ -3821,15 +3747,14 @@
   },
   {
    "id": "p173",
-   "display_name": "Мирақбаров Ж.Ә.",
-   "display_latin": "Mirakbarov Z.A.",
+   "display_name": "Магистрант-14",
+   "display_latin": "Master-14",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Mirakbarov Z.A.",
-    "Мирақбаров Ж.Ә",
-    "Мирақбаров Ж.Ә."
+    "Магистрант-14",
+    "Master-14"
    ],
    "group": "",
    "degree": "",
@@ -3841,15 +3766,14 @@
   },
   {
    "id": "p174",
-   "display_name": "Қажыбек І.",
-   "display_latin": "Kazhybek I.",
+   "display_name": "Магистрант-15",
+   "display_latin": "Master-15",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Kazhybek I.",
-    "Қажыбек І",
-    "Қажыбек І."
+    "Магистрант-15",
+    "Master-15"
    ],
    "group": "",
    "degree": "",
@@ -3861,15 +3785,14 @@
   },
   {
    "id": "p175",
-   "display_name": "Сагынбек Д.",
-   "display_latin": "Sagynbek D.",
+   "display_name": "Магистрант-16",
+   "display_latin": "Master-16",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Sagynbek D.",
-    "Сагынбек Д",
-    "Сагынбек Д."
+    "Магистрант-16",
+    "Master-16"
    ],
    "group": "",
    "degree": "",
@@ -3881,15 +3804,14 @@
   },
   {
    "id": "p176",
-   "display_name": "Смаилова М.Н.",
-   "display_latin": "Smailova M.N.",
+   "display_name": "Магистрант-17",
+   "display_latin": "Master-17",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Smailova M.N.",
-    "Смаилова М. Н",
-    "Смаилова М.Н."
+    "Магистрант-17",
+    "Master-17"
    ],
    "group": "",
    "degree": "",
@@ -3901,15 +3823,14 @@
   },
   {
    "id": "p177",
-   "display_name": "Тәжібай А.Е.",
-   "display_latin": "Tazhibai A.E.",
+   "display_name": "Магистрант-18",
+   "display_latin": "Master-18",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Tazhibai A.E.",
-    "Тәжібай А.Е",
-    "Тәжібай А.Е."
+    "Магистрант-18",
+    "Master-18"
    ],
    "group": "",
    "degree": "",
@@ -3921,15 +3842,14 @@
   },
   {
    "id": "p178",
-   "display_name": "Зикирова Н.Ж.",
-   "display_latin": "Zikirova N.Z.",
+   "display_name": "Магистрант-19",
+   "display_latin": "Master-19",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Zikirova N.Z.",
-    "Зикирова Н.Ж",
-    "Зикирова Н.Ж."
+    "Магистрант-19",
+    "Master-19"
    ],
    "group": "",
    "degree": "",
@@ -3941,15 +3861,14 @@
   },
   {
    "id": "p179",
-   "display_name": "Нурланқызы А.",
-   "display_latin": "Nurlankyzy A.",
+   "display_name": "Магистрант-20",
+   "display_latin": "Master-20",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Nurlankyzy A.",
-    "Нурланқызы А",
-    "Нурланқызы А."
+    "Магистрант-20",
+    "Master-20"
    ],
    "group": "",
    "degree": "",
@@ -3961,15 +3880,14 @@
   },
   {
    "id": "p180",
-   "display_name": "Абдраимова Д.И.",
-   "display_latin": "Abdraimova D.I.",
+   "display_name": "Магистрант-21",
+   "display_latin": "Master-21",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Abdraimova D.I.",
-    "Абдраимова Д.И",
-    "Абдраимова Д.И."
+    "Магистрант-21",
+    "Master-21"
    ],
    "group": "",
    "degree": "",
@@ -3981,15 +3899,14 @@
   },
   {
    "id": "p181",
-   "display_name": "Ахат Г.",
-   "display_latin": "Akhat G.",
+   "display_name": "Магистрант-22",
+   "display_latin": "Master-22",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Akhat G.",
-    "Ахат Г.",
-    "Ахат Гани"
+    "Магистрант-22",
+    "Master-22"
    ],
    "group": "",
    "degree": "",
@@ -4001,15 +3918,14 @@
   },
   {
    "id": "p182",
-   "display_name": "Жусупова М.Б.",
-   "display_latin": "Zhusupova M.B.",
+   "display_name": "Магистрант-23",
+   "display_latin": "Master-23",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Zhusupova M.B.",
-    "Жусупова М.Б",
-    "Жусупова М.Б."
+    "Магистрант-23",
+    "Master-23"
    ],
    "group": "",
    "degree": "",
@@ -4021,15 +3937,14 @@
   },
   {
    "id": "p183",
-   "display_name": "Скуб Е.",
-   "display_latin": "Skub E.",
+   "display_name": "Магистрант-24",
+   "display_latin": "Master-24",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Skub E.",
-    "Скуб Е",
-    "Скуб Е."
+    "Магистрант-24",
+    "Master-24"
    ],
    "group": "Магистрант МН 1 курс бейінді бағыт",
    "degree": "",
@@ -4041,16 +3956,14 @@
   },
   {
    "id": "p184",
-   "display_name": "Сулейменова А.",
-   "display_latin": "Suleimenova A.",
+   "display_name": "Магистрант-25",
+   "display_latin": "Master-25",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Suleimenova A.",
-    "Сулейменова А",
-    "Сулейменова А.",
-    "Сулейменова Айдана"
+    "Магистрант-25",
+    "Master-25"
    ],
    "group": "МН 2 курс",
    "degree": "",
@@ -4062,15 +3975,14 @@
   },
   {
    "id": "p185",
-   "display_name": "Рысбекова А.",
-   "display_latin": "Rysbekova A.",
+   "display_name": "Магистрант-26",
+   "display_latin": "Master-26",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Rysbekova A.",
-    "Рысбекова А",
-    "Рысбекова А."
+    "Магистрант-26",
+    "Master-26"
    ],
    "group": "",
    "degree": "",
@@ -4082,15 +3994,14 @@
   },
   {
    "id": "p186",
-   "display_name": "Левкин К.",
-   "display_latin": "Levkin K.",
+   "display_name": "Магистрант-27",
+   "display_latin": "Master-27",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Levkin K.",
-    "Левкин К",
-    "Левкин К."
+    "Магистрант-27",
+    "Master-27"
    ],
    "group": "",
    "degree": "",
@@ -4102,15 +4013,14 @@
   },
   {
    "id": "p187",
-   "display_name": "Омертаев А.",
-   "display_latin": "Omertaev A.",
+   "display_name": "Магистрант-28",
+   "display_latin": "Master-28",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Omertaev A.",
-    "Омертаев А",
-    "Омертаев А."
+    "Магистрант-28",
+    "Master-28"
    ],
    "group": "",
    "degree": "",
@@ -4122,15 +4032,14 @@
   },
   {
    "id": "p188",
-   "display_name": "Ағабек А.",
-   "display_latin": "Agabek A.",
+   "display_name": "Магистрант-29",
+   "display_latin": "Master-29",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Agabek A.",
-    "Ағабек А",
-    "Ағабек А."
+    "Магистрант-29",
+    "Master-29"
    ],
    "group": "",
    "degree": "",
@@ -4142,15 +4051,14 @@
   },
   {
    "id": "p189",
-   "display_name": "Жамбыл Н.Д.",
-   "display_latin": "Zhambyl N.D.",
+   "display_name": "Магистрант-30",
+   "display_latin": "Master-30",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Zhambyl N.D.",
-    "Жамбыл Н.Д",
-    "Жамбыл Н.Д."
+    "Магистрант-30",
+    "Master-30"
    ],
    "group": "",
    "degree": "",
@@ -4162,15 +4070,14 @@
   },
   {
    "id": "p190",
-   "display_name": "Омаров К.О.",
-   "display_latin": "Omarov K.O.",
+   "display_name": "Магистрант-31",
+   "display_latin": "Master-31",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Omarov K.O.",
-    "Омаров К.О",
-    "Омаров К.О."
+    "Магистрант-31",
+    "Master-31"
    ],
    "group": "",
    "degree": "",
@@ -4182,15 +4089,14 @@
   },
   {
    "id": "p191",
-   "display_name": "Алтыбаева Г.К.",
-   "display_latin": "Altybaeva G.K.",
+   "display_name": "Магистрант-32",
+   "display_latin": "Master-32",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Altybaeva G.K.",
-    "Алтыбаева Г.К",
-    "Алтыбаева Г.К."
+    "Магистрант-32",
+    "Master-32"
    ],
    "group": "",
    "degree": "",
@@ -4202,15 +4108,14 @@
   },
   {
    "id": "p192",
-   "display_name": "Сейтимов Ж.",
-   "display_latin": "Seitimov Z.",
+   "display_name": "Магистрант-33",
+   "display_latin": "Master-33",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Seitimov Z.",
-    "Сейтимов Ж",
-    "Сейтимов Ж."
+    "Магистрант-33",
+    "Master-33"
    ],
    "group": "",
    "degree": "",
@@ -4222,15 +4127,14 @@
   },
   {
    "id": "p193",
-   "display_name": "Жакупов Ә.",
-   "display_latin": "Zhakupov A.",
+   "display_name": "Магистрант-34",
+   "display_latin": "Master-34",
    "full_name": "",
    "role": "master",
    "unit": "mgmt",
    "aliases": [
-    "Zhakupov A.",
-    "Жакупов Ә",
-    "Жакупов Ә."
+    "Магистрант-34",
+    "Master-34"
    ],
    "group": "магистрант МЖБ 2 курс",
    "degree": "",
@@ -4242,13 +4146,14 @@
   },
   {
    "id": "p194",
-   "display_name": "Myrzabossynov Y",
-   "display_latin": "Myrzabossynov Y",
+   "display_name": "Докторант-08",
+   "display_latin": "Doctoral-08",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Myrzabossynov Y"
+    "Докторант-08",
+    "Doctoral-08"
    ],
    "group": "",
    "degree": "",
@@ -4260,13 +4165,14 @@
   },
   {
    "id": "p195",
-   "display_name": "Duketayev B",
-   "display_latin": "Duketayev B",
+   "display_name": "Докторант-09",
+   "display_latin": "Doctoral-09",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Duketayev B"
+    "Докторант-09",
+    "Doctoral-09"
    ],
    "group": "",
    "degree": "",
@@ -4278,13 +4184,14 @@
   },
   {
    "id": "p196",
-   "display_name": "Kassenov K",
-   "display_latin": "Kassenov K",
+   "display_name": "Докторант-10",
+   "display_latin": "Doctoral-10",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Kassenov K"
+    "Докторант-10",
+    "Doctoral-10"
    ],
    "group": "",
    "degree": "",
@@ -4296,13 +4203,14 @@
   },
   {
    "id": "p197",
-   "display_name": "Zhunussova A",
-   "display_latin": "Zhunussova A",
+   "display_name": "Докторант-11",
+   "display_latin": "Doctoral-11",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Zhunussova A"
+    "Докторант-11",
+    "Doctoral-11"
    ],
    "group": "",
    "degree": "",
@@ -4314,13 +4222,14 @@
   },
   {
    "id": "p198",
-   "display_name": "Beibit D",
-   "display_latin": "Beibit D",
+   "display_name": "Докторант-12",
+   "display_latin": "Doctoral-12",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Beibit D"
+    "Докторант-12",
+    "Doctoral-12"
    ],
    "group": "",
    "degree": "",
@@ -4332,15 +4241,14 @@
   },
   {
    "id": "p199",
-   "display_name": "Тулеубаева А.С.",
-   "display_latin": "Tuleubaeva A.S.",
+   "display_name": "Докторант-13",
+   "display_latin": "Doctoral-13",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Tuleubaeva A.S.",
-    "Тулеубаева А.С",
-    "Тулеубаева А.С."
+    "Докторант-13",
+    "Doctoral-13"
    ],
    "group": "",
    "degree": "",
@@ -4352,15 +4260,14 @@
   },
   {
    "id": "p200",
-   "display_name": "Раимбеков Б.Х.",
-   "display_latin": "Raimbekov B.K.",
+   "display_name": "Докторант-14",
+   "display_latin": "Doctoral-14",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Raimbekov B.K.",
-    "Раимбеков Б.Х",
-    "Раимбеков Б.Х."
+    "Докторант-14",
+    "Doctoral-14"
    ],
    "group": "",
    "degree": "",
@@ -4372,15 +4279,14 @@
   },
   {
    "id": "p201",
-   "display_name": "Болатбеков А.Б.",
-   "display_latin": "Bolatbekov A.B.",
+   "display_name": "Докторант-15",
+   "display_latin": "Doctoral-15",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Bolatbekov A.B.",
-    "Болатбеков А.Б",
-    "Болатбеков А.Б."
+    "Докторант-15",
+    "Doctoral-15"
    ],
    "group": "",
    "degree": "",
@@ -4392,14 +4298,14 @@
   },
   {
    "id": "p202",
-   "display_name": "Жусупкалиев А.А.",
-   "display_latin": "Zhusupkaliev A.A.",
+   "display_name": "Докторант-16",
+   "display_latin": "Doctoral-16",
    "full_name": "",
    "role": "doctoral",
    "unit": "mgmt",
    "aliases": [
-    "Zhusupkaliev A.A.",
-    "Жусупкалиев А.А."
+    "Докторант-16",
+    "Doctoral-16"
    ],
    "group": "",
    "degree": "",
@@ -5599,7 +5505,7 @@
     "year": "2025",
     "pages": "427-430",
     "isbn": "978-601—7625-79-5",
-    "authors_text": "Габдуллин А., Байгабулова К,К"
+    "authors_text": "Студент-01, Байгабулова К,К"
    },
    "matrix": {},
    "author_ids": [
@@ -5642,7 +5548,7 @@
     "year": "2025",
     "pages": "445-448",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Конурбаева А., Байгабулова К.К"
+    "authors_text": "Студент-02, Байгабулова К.К"
    },
    "matrix": {},
    "author_ids": [
@@ -5685,7 +5591,7 @@
     "year": "2025",
     "pages": "600-603",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Бейсембай Д., Байгабулова К.К"
+    "authors_text": "Студент-03, Байгабулова К.К"
    },
    "matrix": {},
    "author_ids": [
@@ -5728,7 +5634,7 @@
     "year": "2025",
     "pages": "622-624",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Жукова Е., Жамгырчыева Т., Байгабулова К.К"
+    "authors_text": "Студент-04, Студент-05, Байгабулова К.К"
    },
    "matrix": {},
    "author_ids": [
@@ -5772,7 +5678,7 @@
     "year": "2025",
     "pages": "731-736",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Байгабулова К.К., Каиргельды А"
+    "authors_text": "Байгабулова К.К., Студент-06"
    },
    "matrix": {},
    "author_ids": [
@@ -5815,7 +5721,7 @@
     "year": "2025",
     "pages": "740-743",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Әділ К., Демеева Г., Байгабулова К.К"
+    "authors_text": "Студент-07, Студент-08, Байгабулова К.К"
    },
    "matrix": {},
    "author_ids": [
@@ -5859,7 +5765,7 @@
     "year": "2025",
     "pages": "743-746",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Жусупова К., Малабаева А., Байгабулова К.К"
+    "authors_text": "Студент-09, Студент-10, Байгабулова К.К"
    },
    "matrix": {},
    "author_ids": [
@@ -5903,7 +5809,7 @@
     "year": "2025",
     "pages": "824-827",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Сухарский М., Байгабулова К.К"
+    "authors_text": "Студент-11, Байгабулова К.К"
    },
    "matrix": {},
    "author_ids": [
@@ -5946,7 +5852,7 @@
     "year": "2025",
     "pages": "898-902",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Жанин С Байгабулова К.."
+    "authors_text": "Студент-12 Байгабулова К.."
    },
    "matrix": {},
    "author_ids": [
@@ -5989,7 +5895,7 @@
     "year": "2025",
     "pages": "118-123",
     "isbn": "ISBN 978-601-7697-82-2",
-    "authors_text": "Валийахметова К.А. Ауезова К.Т."
+    "authors_text": "Студент-13 Ауезова К.Т."
    },
    "matrix": {},
    "author_ids": [
@@ -6032,7 +5938,7 @@
     "year": "2025",
     "pages": "4750-4752",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Боранкул З.Т. Ғылыми жетекші: Сейсинбинова А.А."
+    "authors_text": "Студент-14 Ғылыми жетекші: Сейсинбинова А.А."
    },
    "matrix": {},
    "author_ids": [
@@ -6076,7 +5982,7 @@
     "year": "2025",
     "pages": "4905-4907",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Rezayee Sh. Scientific Advisor Seisinbinova A."
+    "authors_text": "Student-15 Sh. Scientific Advisor Seisinbinova A."
    },
    "matrix": {},
    "author_ids": [
@@ -6120,7 +6026,7 @@
     "year": "2025",
     "pages": "4780-4783",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Оңғарбаев Н., Ғылыми жетекші: Молдакенова Е."
+    "authors_text": "Студент-16, Ғылыми жетекші: Молдакенова Е."
    },
    "matrix": {},
    "author_ids": [
@@ -6164,7 +6070,7 @@
     "year": "2025",
     "pages": "4762-4764",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Кенжебаева А., Ғылыми жетекші: Молдакенова Е."
+    "authors_text": "Студент-17, Ғылыми жетекші: Молдакенова Е."
    },
    "matrix": {},
    "author_ids": [
@@ -6207,7 +6113,7 @@
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференция, \nЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.",
     "year": "2025",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Сапиолдаева Б.Қ., Ғылыми жетекші: Әбенов Е.М."
+    "authors_text": "Студент-18, Ғылыми жетекші: Әбенов Е.М."
    },
    "matrix": {},
    "author_ids": [
@@ -6250,7 +6156,7 @@
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференция, \nЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.",
     "year": "2025",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Жұманова Қ. І. Ғылыми жетекші: Әбенов Е.М."
+    "authors_text": "Студент-19 Ғылыми жетекші: Әбенов Е.М."
    },
    "matrix": {},
    "author_ids": [
@@ -6294,7 +6200,7 @@
     "year": "2025",
     "pages": "4778-4781",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Кужебаева А. , Алшынбеков Б.Ғылыми жетекші: Амренова Г."
+    "authors_text": "Студент-17, Студент-20 Ғылыми жетекші: Амренова Г."
    },
    "matrix": {},
    "author_ids": [
@@ -6339,7 +6245,7 @@
     "year": "2025",
     "pages": "4695-4697",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Жалғасбаев Н., Сагынтаева А., Ғылыми жетекші: Амренова Г."
+    "authors_text": "Студент-21, Студент-22, Ғылыми жетекші: Амренова Г."
    },
    "matrix": {},
    "author_ids": [
@@ -6384,7 +6290,7 @@
     "year": "2025",
     "pages": "4790-4793",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Уткирова А., Ахметқалиева Д.Ғылыми жетекші: Амренова Г."
+    "authors_text": "Студент-23, Студент-24 Ғылыми жетекші: Амренова Г."
    },
    "matrix": {},
    "author_ids": [
@@ -6429,7 +6335,7 @@
     "year": "2025",
     "pages": "4783-4786",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Cембек А. Д., Қалыбаева А. Ғ.Ғылыми жетекші: Амренова Г."
+    "authors_text": "Студент-25, Студент-10 Ғылыми жетекші: Амренова Г."
    },
    "matrix": {},
    "author_ids": [
@@ -6474,7 +6380,7 @@
     "year": "2025",
     "pages": "4782-4783",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Салық А.,Ғылыми жетекші: Ерсұлтанқызы Ә."
+    "authors_text": "Студент-26,Ғылыми жетекші: Ерсұлтанқызы Ә."
    },
    "matrix": {},
    "author_ids": [
@@ -6518,7 +6424,7 @@
     "year": "2025",
     "pages": "4756-4759",
     "isbn": "978-601-7625-79-5",
-    "authors_text": "Мусағалиқызы А."
+    "authors_text": "Студент-27"
    },
    "matrix": {},
    "author_ids": [
@@ -6560,7 +6466,7 @@
     "year": "2025",
     "pages": "123-126",
     "isbn": "978-601-7968-61-8",
-    "authors_text": "Қожаназаров Ә., Ғылыми жетекшісі Тулаганов А.Б"
+    "authors_text": "Студент-28, Ғылыми жетекшісі Тулаганов А.Б"
    },
    "matrix": {},
    "author_ids": [
@@ -6604,7 +6510,7 @@
     "year": "2025",
     "pages": "129-132",
     "isbn": "978-601-7968-61-8",
-    "authors_text": "Айқынұлы Е., Ғылыми жетекшісі: Тулаганов А.Б"
+    "authors_text": "Студент-29, Ғылыми жетекшісі: Тулаганов А.Б"
    },
    "matrix": {},
    "author_ids": [
@@ -6648,7 +6554,7 @@
     "year": "2025",
     "pages": "126-129",
     "isbn": "978-601-7968-61-8",
-    "authors_text": "Тоқмағанбет А., Ғылыми жетекшісі: Тулаганов А.Б"
+    "authors_text": "Студент-30, Ғылыми жетекшісі: Тулаганов А.Б"
    },
    "matrix": {},
    "author_ids": [
@@ -6692,7 +6598,7 @@
     "event": "«Заманауи жастар: инновацияны қалыптастырып, болашаққа ұмтылу» атты X халықаралық студенттер слеті. «AI & SDGs: Innovations for the Future» халықаралық ғылыми-практикалық конференциясы, 2025 жылдың 10-11 сәуір",
     "venue": "Қарағанды қ., Академическая көшесі, 9, Қазтұтынуодағы Қарағанды университеті",
     "link": "www. кеu. kz",
-    "authors_text": "Төлегенов А. С. Жұмаділ Н.Ж.",
+    "authors_text": "Студент-31, Студент-32",
     "phone": "+7 000 000 0030",
     "email": "demo.user030@example.edu"
    },
@@ -6736,8 +6642,8 @@
     "award_place": "3-ші дәрежелі диплом",
     "event": "Академик Е.А.Бөкетовтың 100 жылдығына арналған республикалық ЖОО студенттерінің «Sustainable busines» инновациялық стартап-жобалар конкурсы",
     "venue": "Қарағанды қ. Е.А.Бөкетов атындағы Қарағанды университеті",
-    "link": "https://www.instagram.com/p/DIbPR7ZNQ1-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    "authors_text": "Ержанова Акмаржан Жанатовна",
+    "link": "https://example.edu/link-hidden",
+    "authors_text": "Студент-33",
     "phone": "+7 000 000 0031",
     "email": "demo.user031@example.edu"
    },
@@ -6781,7 +6687,7 @@
     "event": "Международная олимпиада научных работ молодежи \"Инновационная Евразия\"",
     "venue": "РК, Астана, ЕНУ имени Л.Н.Гумилева",
     "link": "https://eurasia-forum.ru/",
-    "authors_text": "Алтынбек Жанель",
+    "authors_text": "Студент-34",
     "phone": "+7 000 000 0032",
     "email": "demo.user032@example.edu"
    },
@@ -6825,7 +6731,7 @@
     "event": "Международная олимпиада научных работ молодежи \"Инновационная Евразия\"",
     "venue": "РК, Астана, ЕНУ имени Л.Н.Гумилева",
     "link": "https://eurasia-forum.ru/",
-    "authors_text": "Мухамечанова Д.Б., Амиш А.С., Даулетьяр М.А. Ғылыми жетекші: Е.М. Әбенов",
+    "authors_text": "Студент-35, Студент-36, Студент-37 Ғылыми жетекші: Е.М. Әбенов",
     "phone": "+7 000 000 0033",
     "email": "demo.user033@example.edu"
    },
@@ -6873,7 +6779,7 @@
     "event": "Международная олимпиада научных и приклажных работ молодежи \"Инновационная Евразия\" в РК",
     "venue": "РК, Астана, ЕНУ им. Л.Н.Гумилева",
     "link": "https://eurasia-forum.ru/",
-    "authors_text": "Башар Мадина",
+    "authors_text": "Студент-38",
     "phone": "+7 000 000 0034",
     "email": "demo.user034@example.edu"
    },
@@ -6916,8 +6822,8 @@
     "award_place": "Диплом ГРАН-ПРИ",
     "event": "III Международной студенческой заочной олимпиады на тему: \"Устойчивое развитие: новые вызовы для менеджеров\" посвященная 100 летию КНУ им Ж.Баласагына",
     "venue": "Кыргызский национальный университет имени Ж.Баласагына, Бишкек. КР",
-    "link": "https://www.instagram.com/p/DHDINUQNtdF/?img_index=3&igsh=d3I2ZHhudjA4bnFy",
-    "authors_text": "Аманжол А., Мырзаберген А., Кусманова А., Ошакбай М.",
+    "link": "https://example.edu/link-hidden",
+    "authors_text": "Студент-39, Студент-40, Студент-41, Студент-42",
     "phone": "+7 000 000 0035",
     "email": "demo.user035@example.edu"
    },
@@ -6963,7 +6869,7 @@
     "award_place": "1 место",
     "event": "НИР студентов ВУЗ",
     "venue": "Астана, ЕНУ им.Л.Н.Гумилева",
-    "authors_text": "Ержанова Акмаржан Жанатовна",
+    "authors_text": "Студент-33",
     "phone": "+7 000 000 0036",
     "email": "demo.user036@example.edu"
    },
@@ -7006,7 +6912,7 @@
     "award_place": "3 место",
     "event": "НИР студентов ВУЗ",
     "venue": "Астана, ЕНУ им.Л.Н.Гумилева",
-    "authors_text": "Әндір Дидар Алуадинқызы",
+    "authors_text": "Студент-43",
     "phone": "+7 000 000 0037",
     "email": "demo.user037@example.edu"
    },
@@ -7049,7 +6955,7 @@
     "award_place": "3 место",
     "event": "НИР студентов ВУЗ",
     "venue": "Астана, ЕНУ им.Л.Н.Гумилева",
-    "authors_text": "Дүйсен Жансая Нургалиқызы",
+    "authors_text": "Студент-44",
     "phone": "+7 000 000 0038",
     "email": "demo.user038@example.edu"
    },
@@ -7092,7 +6998,7 @@
     "award_place": "2 место",
     "event": "НИР студентов ВУЗ",
     "venue": "Астана, ЕНУ",
-    "authors_text": "Сагындыкова Аружан",
+    "authors_text": "Студент-45",
     "phone": "+7 000 000 0039",
     "email": "demo.user039@example.edu"
    },
@@ -7135,7 +7041,7 @@
     "award_place": "2 место",
     "event": "НИР студентов ВУЗ",
     "venue": "Астана, ЕНУ",
-    "authors_text": "Акрапов Дастан",
+    "authors_text": "Студент-46",
     "phone": "+7 000 000 0040",
     "email": "demo.user040@example.edu"
    },
@@ -7178,7 +7084,7 @@
     "award_place": "2 место",
     "event": "НИР студентов ВУЗ",
     "venue": "Астана. ЕНУ",
-    "authors_text": "Егембердиев Ильяс",
+    "authors_text": "Студент-47",
     "phone": "+7 000 000 0041",
     "email": "demo.user041@example.edu"
    },
@@ -7220,7 +7126,7 @@
     "group": "МН-22",
     "event": "НИР студентов ВУЗ",
     "venue": "Астана, ЕНУ",
-    "authors_text": "Тутинова Дарина",
+    "authors_text": "Студент-48",
     "phone": "+7 000 000 0042",
     "email": "demo.user042@example.edu"
    },
@@ -7263,7 +7169,7 @@
     "award_place": "2 место",
     "event": "НИР студентов ВУЗ",
     "venue": "Астана, ЕНУ",
-    "authors_text": "Оңғарбаев Нариман",
+    "authors_text": "Студент-16",
     "phone": "+7 000 000 0043",
     "email": "demo.user043@example.edu"
    },
@@ -7307,7 +7213,7 @@
     "event": "Международная олимпиада научных работ молодежи \"Инновационная Евразия\"",
     "venue": "РФ, Екатеринбург",
     "link": "https://eurasia-forum.ru/",
-    "authors_text": "Алтынбек Жанель",
+    "authors_text": "Студент-34",
     "phone": "+7 000 000 0044",
     "email": "demo.user044@example.edu"
    },
@@ -7350,8 +7256,8 @@
     "award_place": "Гран-при, 20 ақпан 2025 жыл",
     "event": "Жүсіп Баласағұн атындағы Қырғыз ұлттық университетінің Менеджмент және бизнес институтында «Менеджмент» білім беру бағдарламасы аясында «Тұрақты даму: менеджерлер үшін жаңа сын-қатерлер» тақырыбында Халықаралық студенттік онлайн олимпиада өтті.",
     "venue": "Қырғызстан Республикасы Бишкек қаласы",
-    "link": "https://www.instagram.com/p/DHTnjVBItjU/?img_index=5&igsh=Z2cxc3hmeXZvMDho",
-    "authors_text": "Мирамов С.Ә., Мухамечанова Д.Б., Амиш А.С., Даулетьяр М.А. Ғылыми жетекші: Е.М. Әбенов",
+    "link": "https://example.edu/link-hidden",
+    "authors_text": "Студент-49, Студент-35, Студент-36, Студент-37 Ғылыми жетекші: Е.М. Әбенов",
     "phone": "+7 000 000 0045",
     "email": "demo.user045@example.edu"
    },
@@ -7399,8 +7305,8 @@
     "award_place": "3 место",
     "event": "студенттердің ғылыми зерттеу жұмыстарының I кезеңі",
     "venue": "РК",
-    "link": "https://fe.enu.kz/kz/news/6210",
-    "authors_text": "А.С.Найманов",
+    "link": "https://example.edu/link-hidden",
+    "authors_text": "Студент-50",
     "phone": "+7 000 000 0046"
    },
    "matrix": {},
@@ -7494,7 +7400,7 @@
     "issn": "2146-4554",
     "impact": "https://econjournals.com/index.php/ijeep/article/view/21322",
     "quartile": "Scopus, Квартиль Q2, Процентиль – 71 (General Economics, Econometrics and Finance)",
-    "authors_text": "Kurmanov N., Kenzhin Z., Aldabergenov N., Satbayeva A., Mussabalina D."
+    "authors_text": "Kurmanov N., Doctoral-01, Aldabergenov N., Satbayeva A., Mussabalina D."
    },
    "matrix": {},
    "author_ids": [
@@ -7593,7 +7499,7 @@
     "issn": "1729-3774",
     "impact": "https://journals.uran.ua/eejet/article/view/340563",
     "quartile": "Scopus, Квартиль Q3, Процентиль – 41 (Management of Technology and Innovation)",
-    "authors_text": "Kurmanov N., Kenzhin Z., Baxultanov D., Zhagalbayev B., Mussabalina D., Zhagalbayeva M., Amrenova G."
+    "authors_text": "Kurmanov N., Doctoral-01, Baxultanov D., Zhagalbayev B., Mussabalina D., Zhagalbayeva M., Amrenova G."
    },
    "matrix": {},
    "author_ids": [
@@ -8346,7 +8252,7 @@
     "issue": "1(58)",
     "pages": "98-105",
     "issn": "2304-7216",
-    "authors_text": "Курманов Н.А., Кенжин Ж.Б., Куангалиева Т.К., Утарбаева Г.К."
+    "authors_text": "Курманов Н.А., Кенжин Ж.Б., Докторант-02, Утарбаева Г.К."
    },
    "matrix": {},
    "author_ids": [
@@ -8484,7 +8390,7 @@
     "issue": "4(41)",
     "pages": "в печати",
     "issn": "2617-0493",
-    "authors_text": "Куангалиева Т.К., Курманов Н.А., Кожамуратов Н. К., Рахимбекова А.Е."
+    "authors_text": "Докторант-02, Курманов Н.А., Докторант-03, Рахимбекова А.Е."
    },
    "matrix": {},
    "author_ids": [
@@ -8898,7 +8804,7 @@
     "issue": "2",
     "pages": "235-252",
     "issn": "2710-3552",
-    "authors_text": "Мухияева Д.М., Есейкызы А"
+    "authors_text": "Мухияева Д.М., Докторант-04"
    },
    "matrix": {},
    "author_ids": [
@@ -9256,7 +9162,7 @@
     "issue": "2",
     "pages": "143-147",
     "issn": "2304-7216",
-    "authors_text": "М.Т. Набиева, З.А. Сальжанова, Д.Т. Ахметова, Л.К. Бокенчина,"
+    "authors_text": "М.Т. Набиева, Докторант-05, Д.Т. Ахметова, Л.К. Бокенчина,"
    },
    "matrix": {},
    "author_ids": [
@@ -9302,7 +9208,7 @@
     "issue": "3",
     "pages": "81-90",
     "issn": "ISSN 2789-4398 (Print)\nISSN 2789-4401 (Online)",
-    "authors_text": "Хасенова К.К., Мухамеджанов Ж.У., Досжан Р.Д."
+    "authors_text": "Хасенова К.К., Докторант-06, Докторант-07"
    },
    "matrix": {},
    "author_ids": [
@@ -9622,7 +9528,7 @@
     "issue": "1",
     "pages": "С.486-494",
     "isbn": "ISBN 978-601—7625-79-5",
-    "authors_text": "Байгабулова К.К, Курманов А."
+    "authors_text": "Байгабулова К.К, Магистрант-01"
    },
    "matrix": {},
    "author_ids": [
@@ -10172,7 +10078,7 @@
     "issue": "15",
     "pages": "13-23",
     "issn": "2541-9412",
-    "authors_text": "Асылханова Т.К., Ғылыми жетекшісі: Жансеитова Г.С."
+    "authors_text": "Магистрант-02, Ғылыми жетекшісі: Жансеитова Г.С."
    },
    "matrix": {},
    "author_ids": [
@@ -10261,7 +10167,7 @@
     "year": "2025",
     "issue": "11",
     "issn": "ISSN (online) 2709-1201",
-    "authors_text": "Абильдаева М.Б.,Ғылыми жетекшісі Мухияева Д.М."
+    "authors_text": "Магистрант-03,Ғылыми жетекшісі Мухияева Д.М."
    },
    "matrix": {},
    "author_ids": [
@@ -10347,7 +10253,7 @@
     "year": "2025",
     "pages": "С.486-494",
     "isbn": "ISBN 978-601-7625-79-5",
-    "authors_text": "Курманов А.М., Байгабулова К.К."
+    "authors_text": "Магистрант-01, Байгабулова К.К."
    },
    "matrix": {},
    "author_ids": [
@@ -10389,7 +10295,7 @@
     "source": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір, Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "year": "2025",
     "pages": "басылымда",
-    "authors_text": "Мықтыбай М. Ғылыми жетекші: Шамишева Н.К."
+    "authors_text": "Магистрант-04 Ғылыми жетекші: Шамишева Н.К."
    },
    "matrix": {},
    "author_ids": [
@@ -10432,7 +10338,7 @@
     "source": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір, Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "year": "2025",
     "pages": "басылымда",
-    "authors_text": "Бақтыбай М. Ғылыми жетекші: Шамишева Н.К."
+    "authors_text": "Магистрант-05 Ғылыми жетекші: Шамишева Н.К."
    },
    "matrix": {},
    "author_ids": [
@@ -10476,7 +10382,7 @@
     "year": "2025",
     "pages": "С.88-92",
     "isbn": "ISBN 978-601-385-042-9",
-    "authors_text": "Балгынбек Д. Научный руководитель: Шамишева Н.К."
+    "authors_text": "Магистрант-06 Научный руководитель: Шамишева Н.К."
    },
    "matrix": {},
    "author_ids": [
@@ -10520,7 +10426,7 @@
     "year": "2025",
     "pages": "С.235-242",
     "isbn": "ISBN 978-601-215-237-1",
-    "authors_text": "Мухияева Д.М., Архатова Г.А.,Ғылыми жетекші Мухияева Д.М"
+    "authors_text": "Мухияева Д.М., Магистрант-07,Ғылыми жетекші Мухияева Д.М"
    },
    "matrix": {},
    "author_ids": [
@@ -10564,7 +10470,7 @@
     "source": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір, Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "year": "2025",
     "pages": "басылымда",
-    "authors_text": "Максут Томирис Ғылыми жетекші Мухияева Д.М"
+    "authors_text": "Магистрант-08 Ғылыми жетекші Мухияева Д.М"
    },
    "matrix": {},
    "author_ids": [
@@ -10607,7 +10513,7 @@
     "source": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір, Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "year": "2025",
     "pages": "басылымда",
-    "authors_text": "Исмагулова Бахыт Ғылыми жетекші Мухияева Д.М"
+    "authors_text": "Магистрант-09 Ғылыми жетекші Мухияева Д.М"
    },
    "matrix": {},
    "author_ids": [
@@ -10651,7 +10557,7 @@
     "year": "2025",
     "pages": "284-289",
     "isbn": "ISBN 978-601-345-593-4 (жалпы) Т. 1. – 2025. – 318 б. ISBN 978-601-345-592-1",
-    "authors_text": "Қалхаман Қалмахан. Ғылыми жетекші Нуркенова М.Ж."
+    "authors_text": "Магистрант-10 Ғылыми жетекші Нуркенова М.Ж."
    },
    "matrix": {},
    "author_ids": [
@@ -10696,7 +10602,7 @@
     "issue": "Сборник международной научно-практической конференции «Экономико-правовые проблемы устойчивого развития АПК и продовольственной безопасности: прикладные исследования, интеллектуальные технологии и инновационное развитие» І Том",
     "pages": "142-147",
     "isbn": "ISBN 978-601-365-071-5",
-    "authors_text": "Қалхаман Қалмахан. Ғылыми жетекші Нуркенова М.Ж."
+    "authors_text": "Магистрант-10 Ғылыми жетекші Нуркенова М.Ж."
    },
    "matrix": {},
    "author_ids": [
@@ -10740,7 +10646,7 @@
     "year": "2025",
     "issue": "ISBN 978-601-08-5373-7",
     "pages": ".",
-    "authors_text": "Абдумавленова Тахмина. Ғылыми жетекші Нуркенова М.Ж."
+    "authors_text": "Магистрант-11 Ғылыми жетекші Нуркенова М.Ж."
    },
    "matrix": {},
    "author_ids": [
@@ -10783,7 +10689,7 @@
     "source": "«Ұлттық мүдде және мемлекетшілдік сабақтары: Жұмабек Тәшеновтың мұрасы»\n Халықаралық ғылыми-теориялық конференциясы",
     "year": "2025",
     "issue": "ISBN 978-601-08-5030-9",
-    "authors_text": "Абдумавленова Тахмина. Ғылыми жетекші Нуркенова М.Ж."
+    "authors_text": "Магистрант-11 Ғылыми жетекші Нуркенова М.Ж."
    },
    "matrix": {},
    "author_ids": [
@@ -10828,7 +10734,7 @@
     "issue": "Вестник науки №12 (81) том 3.",
     "pages": "С. 2156 - 2161.",
     "isbn": "ISSN 2712-8849 // Электронный ресурс: https://www.вестник-науки.рф/article/20006 (дата обращения: 19.05.2025 г.)",
-    "authors_text": "Өскенбаева М.Б., Ғылыми жетекші:Турмаханбетова Ш.Ш."
+    "authors_text": "Магистрант-12, Ғылыми жетекші:Турмаханбетова Ш.Ш."
    },
    "matrix": {},
    "author_ids": [
@@ -10873,7 +10779,7 @@
     "issue": "Материалы круглого стола Министерство науки и высшего образования РК, Комитет науки, Институт Экономики",
     "pages": "С 369-374",
     "isbn": "ISBN 978-601-215-237-1",
-    "authors_text": "Өскенбаева М.Б., Ғылыми жетекші:Турмаханбетова Ш.Ш."
+    "authors_text": "Магистрант-12, Ғылыми жетекші:Турмаханбетова Ш.Ш."
    },
    "matrix": {},
    "author_ids": [
@@ -10918,7 +10824,7 @@
     "issue": "«Молодой ученый» международный научныйжурнал,",
     "pages": "С 55–58.",
     "isbn": "ISSN 2072–0297, часть 8 (559), 2025",
-    "authors_text": "Умарова А.М., Ғылыми жетекші Турмаханбетова Ш.Ш."
+    "authors_text": "Магистрант-13, Ғылыми жетекші Турмаханбетова Ш.Ш."
    },
    "matrix": {},
    "author_ids": [
@@ -10963,7 +10869,7 @@
     "issue": "ХХ Халықаралық ғылыми конференция «ǴYLYM JÁNE BІLІM – 2025», Астана, 2025",
     "pages": "С 25-30",
     "isbn": "ХХ Халықаралық ғылыми конференция «ǴYLYM JÁNE BІLІM – 2025», Астана, 2025",
-    "authors_text": "Умарова А.М.,Ғылыми жетекші:Турмаханбетова Ш.Ш."
+    "authors_text": "Магистрант-13,Ғылыми жетекші:Турмаханбетова Ш.Ш."
    },
    "matrix": {},
    "author_ids": [
@@ -11008,7 +10914,7 @@
     "issue": "Вестник науки №4(85) том 4 Международный научный журнал РФ",
     "pages": "С1309-1316",
     "isbn": "Вестник науки №4(85) том 4 Международный научный журнал РФ https://WWW.вестник-науки РФ ISSN2712-8849",
-    "authors_text": "Исмагулова Бакытнур, Ғылыми жетекші:Турмаханбетова Ш.Ш."
+    "authors_text": "Магистрант-09, Ғылыми жетекші:Турмаханбетова Ш.Ш."
    },
    "matrix": {},
    "author_ids": [
@@ -11047,13 +10953,13 @@
    },
    "fields": {
     "_reported_department": "Менеджмент",
-    "title": "Мирақбаров Ж.Ә. ҚАЗАҚСТАН ЖАСТАРЫНЫҢ ӘЛЕУЕТІ МЕН ДАМУ БАҒЫТТАРЫ",
+    "title": "ҚАЗАҚСТАН ЖАСТАРЫНЫҢ ӘЛЕУЕТІ МЕН ДАМУ БАҒЫТТАРЫ",
     "source": "Экономика ғылымдарының докторы, профессор Байжолова Раиса Әлиқызының мерейтойына арналған «ҚАЗАҚСТАН ЭКОНОМИКАСЫ: ШЫНДЫҚТАР МЕ\nПЕРСПЕКТИВАЛАР» атты халықаралық ғылыми-тәжірибелік конференциясының ЕҢБЕКТЕР ЖИНАҒЫ25 қаңтар 2025 ж.",
     "year": "2025",
     "issue": "Экономика ғылымдарының докторы, профессор Байжолова Раиса Әлиқызының мерейтойына\nарналған «ҚАЗАҚСТАН ЭКОНОМИКАСЫ: ШЫНДЫҚТАР МЕН\nПЕРСПЕКТИВАЛАР» атты халықаралық ғылыми-тәжірибелік конференциясының\nЕҢБЕКТЕР ЖИНАҒЫ\n25 қаңтар 2025 ж.",
     "pages": "С .285-288",
     "isbn": "Экономика ғылымдарының докторы, профессор Байжолова Раиса Әлиқызының мерейтойына\nарналған «ҚАЗАҚСТАН ЭКОНОМИКАСЫ: ШЫНДЫҚТАР МЕН\nПЕРСПЕКТИВАЛАР» атты халықаралық ғылыми-тәжірибелік конференциясының\nЕҢБЕКТЕР ЖИНАҒЫ\n25 қаңтар 2025 ж. ISBN 978-601-385-042-9",
-    "authors_text": ".Мирақбаров Ж.Ә.Ғылыми жетекші:Турмаханбетова Ш.Ш."
+    "authors_text": "Магистрант-14 Ғылыми жетекші:Турмаханбетова Ш.Ш."
    },
    "matrix": {},
    "author_ids": [
@@ -11098,7 +11004,7 @@
     "issue": "қаңтар",
     "pages": "242-245",
     "isbn": "978-601-385-042-9",
-    "authors_text": "Қажыбек І., Ғылыми жетекшісі: Хасенова К.К."
+    "authors_text": "Магистрант-15, Ғылыми жетекшісі: Хасенова К.К."
    },
    "matrix": {},
    "author_ids": [
@@ -11143,7 +11049,7 @@
     "issue": "наурыз",
     "pages": "145-149",
     "isbn": "https://globalbusinesssymposium.com/",
-    "authors_text": "Сагынбек Д., Ғылыми жетекшісі: Хасенова К.К."
+    "authors_text": "Магистрант-16, Ғылыми жетекшісі: Хасенова К.К."
    },
    "matrix": {},
    "author_ids": [
@@ -11186,7 +11092,7 @@
     "source": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір, Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "year": "2025",
     "issue": "басылымда",
-    "authors_text": "Смаилова М. Н., Ғылыми жетекшісі: Хасенова К.К."
+    "authors_text": "Магистрант-17, Ғылыми жетекшісі: Хасенова К.К."
    },
    "matrix": {},
    "author_ids": [
@@ -11228,7 +11134,7 @@
     "title": "Финансовые инновации: трансформация рынка и перспективы развития",
     "source": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір, Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "year": "2025",
-    "authors_text": "Тәжібай А.Е., Ғылыми жетекшісі: Жансеитова Г.С."
+    "authors_text": "Магистрант-18, Ғылыми жетекшісі: Жансеитова Г.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11270,7 +11176,7 @@
     "title": "HR-технологии в онбординге:эффективность контроля в компании",
     "source": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір, Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "year": "2025",
-    "authors_text": "Асылханова Т.К., Ғылыми жетекшісі: Жансеитова Г.С."
+    "authors_text": "Магистрант-02, Ғылыми жетекшісі: Жансеитова Г.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11312,7 +11218,7 @@
     "title": "Қазақстан Республикасының қаржы жүйесін дамыту факторы ретінде екінші деңгейлі банктерінде ипотекалық менеджментті басқарудың инновациялық тәсілдері",
     "source": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір, Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "year": "2025",
-    "authors_text": "Зикирова Н.Ж., Ғылыми жетекшісі: Жансеитова Г.С."
+    "authors_text": "Магистрант-19, Ғылыми жетекшісі: Жансеитова Г.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11354,7 +11260,7 @@
     "title": "Білім беру мекемесіндегі сапа жүйесін ұйымдастырудың ұйымдық аспектілері",
     "source": "Democracy.kz саяси-ақпараттық порталы, 2025ж.\nБ. 1-11 https://democracy.kz/?p=5219",
     "year": "2025",
-    "authors_text": "Нурланқызы А., Ғылыми жетекшісі: Жансеитова Г.С."
+    "authors_text": "Магистрант-20, Ғылыми жетекшісі: Жансеитова Г.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11396,7 +11302,7 @@
     "title": "Педагогикалық мониторинг — білім сапасын басқару құралы ретінде",
     "source": "https://qazaqscience.kz/archives/2169 Qazaq Science ғылыми-танымдық порталы, 2025ж.\nБ.2169(12)",
     "year": "2025",
-    "authors_text": "Нурланқызы А., Ғылыми жетекшісі: Жансеитова Г.С."
+    "authors_text": "Магистрант-20, Ғылыми жетекшісі: Жансеитова Г.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11438,7 +11344,7 @@
     "title": "Определение стратегических приоритетов управления талантами в организациях",
     "source": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір, Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "year": "2025",
-    "authors_text": "Абдраимова Д.И., Ғылыми жетекшісі: Жансеитова Г.С."
+    "authors_text": "Магистрант-21, Ғылыми жетекшісі: Жансеитова Г.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11480,7 +11386,7 @@
     "title": "Разработка старатегии развитиив условиях цифровой трансформации",
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференция, \nЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.",
     "year": "2025",
-    "authors_text": "Ахат Гани., ғылыми жетекши Тулаганов А.Б."
+    "authors_text": "Магистрант-22, ғылыми жетекши Тулаганов А.Б."
    },
    "matrix": {},
    "author_ids": [
@@ -11522,7 +11428,7 @@
     "title": "Иновациялық діни еркіндік және мемлекеттік саясат",
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференцияЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.,",
     "year": "2025",
-    "authors_text": "Жусупова М.Б., ғылыми жетекши Тулаганов А.Б."
+    "authors_text": "Магистрант-23, ғылыми жетекши Тулаганов А.Б."
    },
    "matrix": {},
    "author_ids": [
@@ -11564,7 +11470,7 @@
     "title": "Совершенствование стратегии развития АО «СПК «ASTANA» на основе повышения социальной ответственности",
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференцияЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.,",
     "year": "2025",
-    "authors_text": "Скуб Е. Ғылыми жетекшісі Толысбаев Б.С."
+    "authors_text": "Магистрант-24 Ғылыми жетекшісі Толысбаев Б.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11606,7 +11512,7 @@
     "title": "Методологические подходы к стратегическому управлению туристскими дестинациями Абайской области",
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференцияЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.,",
     "year": "2025",
-    "authors_text": "Сулейменова А. Ғылыми жетекшісі Толысбаев Б.С."
+    "authors_text": "Магистрант-25 Ғылыми жетекшісі Толысбаев Б.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11648,7 +11554,7 @@
     "title": "Анализ современных подходов управления переработкой отходов пищевого производства",
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференцияЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.,",
     "year": "2025",
-    "authors_text": "Рысбекова А. Ғылыми жетекшісі Толысбаев Б.С."
+    "authors_text": "Магистрант-26 Ғылыми жетекшісі Толысбаев Б.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11690,7 +11596,7 @@
     "title": "Формирование клиентской лояльности как фактор развития кофейни ИП «LE SALEM»",
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференцияЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.,",
     "year": "2025",
-    "authors_text": "Левкин К. Ғылыми жетекшісі Толысбаев Б.С."
+    "authors_text": "Магистрант-27 Ғылыми жетекшісі Толысбаев Б.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11732,7 +11638,7 @@
     "title": "Инновационные технологии управления в системе высшего образования: анализ применения современных цифровых технологии",
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференцияЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.,",
     "year": "2025",
-    "authors_text": "Омертаев А. Ғылыми жетекшісі Толысбаев Б.С."
+    "authors_text": "Магистрант-28 Ғылыми жетекшісі Толысбаев Б.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11774,7 +11680,7 @@
     "title": "Социальное пред-принимательство или новые горизонты решения социальных проблем",
     "source": "Сборник Международной научной конференции «XXV Сатпаевские чтения». НАО «Торайгыров университет», г. Павлодар. 18.04.2025 г.",
     "year": "2025",
-    "authors_text": "Скуб Е., Ғылыми жетекшісі Тоысбаев Б.С."
+    "authors_text": "Магистрант-24, Ғылыми жетекшісі Тоысбаев Б.С."
    },
    "matrix": {},
    "author_ids": [
@@ -11816,7 +11722,7 @@
     "title": "Заманауи HRM көрінісі: HRM тәжірибесін өзгертудегі технология мен шыармашылықтың рөлі",
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференцияЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.,",
     "year": "2025",
-    "authors_text": "Ағабек А. Ғылыми жетекшісі Мухияева Д.М."
+    "authors_text": "Магистрант-29 Ғылыми жетекшісі Мухияева Д.М."
    },
    "matrix": {},
    "author_ids": [
@@ -11860,7 +11766,7 @@
     "year": "2025",
     "pages": "86-88",
     "isbn": "ISBN 978-601-355-570-6",
-    "authors_text": "Жамбыл Н.Д.Ғылыми жетеқшісі Байгабулова К.К"
+    "authors_text": "Магистрант-30 Ғылыми жетеқшісі Байгабулова К.К"
    },
    "matrix": {},
    "author_ids": [
@@ -11905,7 +11811,7 @@
     "issue": "2025-04-11 00:00:00",
     "pages": "4769-4771",
     "isbn": "ISBN 978-601-08-5373-7",
-    "authors_text": "Жамбыл Н.Д.Ғылыми жетеқшісі Байгабулова К.К."
+    "authors_text": "Магистрант-30 Ғылыми жетеқшісі Байгабулова К.К."
    },
    "matrix": {},
    "author_ids": [
@@ -11950,7 +11856,7 @@
     "issue": "2025-04-11 00:00:00",
     "pages": "4170-4173",
     "isbn": "ISBN 978-601-08-5373-7",
-    "authors_text": "Омаров К.О. ,Алтыбаева Г.КҒылыми жетеқшісі Байгабулова К.К."
+    "authors_text": "Магистрант-31 ,Магистрант-32 КҒылыми жетеқшісі Байгабулова К.К."
    },
    "matrix": {},
    "author_ids": [
@@ -11996,7 +11902,7 @@
     "issue": "2025-04-18 00:00:00",
     "pages": "210-212",
     "isbn": "ISBN 978-6017081-20-1",
-    "authors_text": "Омаров К.О. Ғылыми жетеқшісі Байгабулова К.К."
+    "authors_text": "Магистрант-31 Ғылыми жетеқшісі Байгабулова К.К."
    },
    "matrix": {},
    "author_ids": [
@@ -12041,7 +11947,7 @@
     "issue": "30 ноябрь",
     "pages": "15-19",
     "isbn": "2709-1201",
-    "authors_text": "Қалхаман Қ.Н., Нуркенова М.Ж."
+    "authors_text": "Магистрант-10, Нуркенова М.Ж."
    },
    "matrix": {},
    "author_ids": [
@@ -12086,7 +11992,7 @@
     "pages": "С.149-156",
     "country": "ISSN 2415-8771",
     "link": "https://www.internauka.org/authors/seytimov-zhanserik-bakhitovich",
-    "authors_text": "Сейтимов Ж. научный руководитель Шамишева Н.К."
+    "authors_text": "Магистрант-33 научный руководитель Шамишева Н.К."
    },
    "matrix": {},
    "author_ids": [
@@ -12130,7 +12036,7 @@
     "event": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір",
     "venue": "Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "link": "www.enu.kz",
-    "authors_text": "Мықтыбай М. Ғылыми жетекш: Шамишева Н.К.",
+    "authors_text": "Магистрант-04 Ғылыми жетекш: Шамишева Н.К.",
     "phone": "+7 000 000 0152"
    },
    "matrix": {},
@@ -12175,7 +12081,7 @@
     "event": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір",
     "venue": "Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
     "link": "http://www.enu.kz",
-    "authors_text": "Жакупов Ә. Ғылыми жетекш: Набиева М.Т.",
+    "authors_text": "Магистрант-34 Ғылыми жетекш: Набиева М.Т.",
     "phone": "+7 000 000 0153",
     "email": "demo.user153@example.edu"
    },
@@ -12220,7 +12126,7 @@
     "award_place": "1-ші дәрежелі диплом",
     "event": "«ǴYLYM JÁNE BІLІM - 2025» ХХ Халықаралық ғылыми конференциясы, 2025 жылғы 11 сәуір",
     "venue": "Астана қ., Л.Н. Гумилев атындағы ЕҰУ",
-    "authors_text": "Скуб Е. Ғылыми жетекшісі Толысбаев Б.С."
+    "authors_text": "Магистрант-24 Ғылыми жетекшісі Толысбаев Б.С."
    },
    "matrix": {},
    "author_ids": [
@@ -12305,7 +12211,7 @@
     "award_place": "2 место, 25 апреля 2025 года диплом второй степени",
     "event": "Международная олимпиада научных работ молодежи \"Инновационная Евразия\"",
     "venue": "РФ, Екатеринбург",
-    "authors_text": "Сулейменова Айдана, Ғылыми жетекшісі Толысбаев Б.С."
+    "authors_text": "Магистрант-25, Ғылыми жетекшісі Толысбаев Б.С."
    },
    "matrix": {},
    "author_ids": [
@@ -12350,7 +12256,7 @@
     "issue": "14(11)",
     "pages": "Page No - 66",
     "issn": "1735-2215",
-    "authors_text": "Kuangaliyeva T., Kenzhin Z., Myrzabossynov Y., Duketayev B., Kurmanov N., Kassenov K., Zhunussova A., Kozhamuratov N., Beibit D."
+    "authors_text": "Doctoral-02, Doctoral-01, Doctoral-08, Doctoral-09, Kurmanov N., Doctoral-10, Doctoral-11, Doctoral-03, Doctoral-12"
    },
    "matrix": {},
    "author_ids": [
@@ -12401,7 +12307,7 @@
     "issue": "4(41)",
     "pages": "в печати",
     "issn": "2617-0493",
-    "authors_text": "Куангалиева Т.К., Курманов Н.А., Кожамуратов Н.К., Рахимбекова А.Е."
+    "authors_text": "Докторант-02, Курманов Н.А., Докторант-03, Рахимбекова А.Е."
    },
    "matrix": {},
    "author_ids": [
@@ -12447,7 +12353,7 @@
     "issue": "4(61)",
     "pages": "64-72",
     "issn": "2304-7216",
-    "authors_text": "Тулеубаева А.С., Сальжанова З.А., Раимбеков Б.Х., Болатбеков А.Б."
+    "authors_text": "Докторант-13, Докторант-05, Докторант-14, Докторант-15"
    },
    "matrix": {},
    "author_ids": [
@@ -12493,7 +12399,7 @@
     "issue": "2",
     "pages": "235-252",
     "issn": "2710-3552",
-    "authors_text": "Есейқызы Aрай, Ғылыми жетекшісі Мухияева Д.М."
+    "authors_text": "Докторант-04, Ғылыми жетекшісі Мухияева Д.М."
    },
    "matrix": {},
    "author_ids": [
@@ -12537,7 +12443,7 @@
     "year": "2025",
     "issue": "3",
     "issn": "2789-4320",
-    "authors_text": "Есейқызы Aрай, Ғылыми жетекшісі Мухияева Д.М."
+    "authors_text": "Докторант-04, Ғылыми жетекшісі Мухияева Д.М."
    },
    "matrix": {},
    "author_ids": [
@@ -12581,7 +12487,7 @@
     "year": "2025",
     "issue": "81-90",
     "pages": "ISSN 2789-4398 (Print)\nISSN 2789-4401 (Online)",
-    "authors_text": "Хасенова К.К., Мухамеджанов Ж.У., Досжан Р.Д."
+    "authors_text": "Хасенова К.К., Докторант-06, Докторант-07"
    },
    "matrix": {},
    "author_ids": [
@@ -12624,7 +12530,7 @@
     "source": "«ǴYLYM JÁNE BІLІM 2025», ХX Халықаралық ғылыми конференция, \nЛ.Н.Гумилев атындағы Еуразия ұлттық университеті, 11 сәуір, 2025 жыл. Астана қ.",
     "year": "2025",
     "issue": "в печати",
-    "authors_text": "Жусупкалиев А.А. Науч рук. Хасенова К.К."
+    "authors_text": "Докторант-16 Науч рук. Хасенова К.К."
    },
    "matrix": {},
    "author_ids": [

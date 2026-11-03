@@ -31,7 +31,7 @@ def translit(text: str) -> str:
 def surname_key(surname: str) -> str:
     key = translit(surname)
     key = unicodedata.normalize("NFKD", key)
-    key = re.sub(r"[^a-z]", "", key)
+    key = re.sub(r"[^a-z0-9]", "", key)
     # Латын мен кириллица жазылымындағы ұсақ айырмашылықтарды жою
     key = key.replace("yu", "u").replace("ye", "e").replace("iy", "i").replace("yi", "i")
     key = key.replace("y", "i").replace("kh", "h").replace("zh", "j")
@@ -51,7 +51,8 @@ def levenshtein(a: str, b: str, limit: int = 3) -> int:
 
 
 _INITIAL = rf"[{UP}][{LOW}]?\."
-_SURNAME = rf"[{UP}][{LOW}'’\-]{{2,}}"
+# Шартты ат («Студент-07») нөмірмен аяқталады, ал аты-жөн соңындағы сілтеме цифры («Әлиев1») атқа кірмейді.
+_SURNAME = rf"[{UP}][{LOW}'’\-]{{2,}}(?:(?<=-)\d{{2}})?"
 _I_THEN_S = re.compile(rf"((?:{_INITIAL}\s*){{1,3}})\s*({_SURNAME})")
 _S_THEN_I = re.compile(rf"({_SURNAME})\s+((?:[{UP}]\.?\s*){{1,3}})(?=$|[\s,.;])")
 _FULL = re.compile(rf"({_SURNAME})((?:\s+{_SURNAME}){{1,2}})")
@@ -116,6 +117,8 @@ def split_authors_supervisor(text: str) -> tuple[str, str]:
 def same_person(a: dict, b: dict) -> bool:
     ka, kb = surname_key(a["surname"]), surname_key(b["surname"])
     if not ka or not kb:
+        return False
+    if ka != kb and (re.search(r"\d", ka) or re.search(r"\d", kb)):
         return False
     limit = 0 if min(len(ka), len(kb)) < 6 else 1 if min(len(ka), len(kb)) < 9 else 2
     if levenshtein(ka, kb, 3) > limit:

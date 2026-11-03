@@ -19,6 +19,7 @@ from openpyxl import load_workbook  # noqa: E402
 
 from app import analytics, store  # noqa: E402
 from app.main import app  # noqa: E402
+from app.names import match_person, parse_people, same_person  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SEED = json.loads((ROOT / "data" / "seed.json").read_text(encoding="utf-8"))
@@ -66,7 +67,7 @@ def test_only_unreachable_test_contacts_on_prize_rows():
             assert rec["fields"]["phone"].startswith("+7 000 000 ")
 
 
-def test_prize_learners_are_named_as_in_the_report():
+def test_learners_appear_only_under_pseudonyms():
     persons = {p["id"]: p for p in SEED["persons"]}
     prizes = [r for r in SEED["records"] if r["type"] == "prize"]
     assert prizes and all(r["fields"]["authors_text"] and r["author_ids"] for r in prizes)
@@ -74,6 +75,16 @@ def test_prize_learners_are_named_as_in_the_report():
         for a in rec["author_ids"]:
             surname = persons[a]["display_name"].split()[0]
             assert surname in rec["fields"]["authors_text"] or persons[a]["display_latin"].split()[0] in rec["fields"]["authors_text"], a
+    assert not any(re.search(r"instagram\.com|/news/", r["fields"].get("link") or "") for r in prizes)
+
+    owner = next(p["person"] for p in SEED["positions"] if p["id"] == "doctoral")
+    learners = [p for p in SEED["persons"] if p["role"] in ("student", "master", "doctoral") and p["id"] != owner and not p.get("sample")]
+    assert learners and all(re.fullmatch(r"(Студент|Магистрант|Докторант)-\d{2}", p["display_name"]) for p in learners)
+    first, second = learners[0], learners[1]
+    assert match_person(first["display_name"], learners)["person_id"] == first["id"]
+    assert match_person(first["display_latin"], learners)["person_id"] == first["id"]
+    assert not same_person(parse_people(first["display_name"])[0], parse_people(second["display_name"])[0])
+    assert parse_people("Е.Д. Иванов1")[0]["surname"] == "Иванов"
 
 
 def test_invented_diploma_sample_is_not_a_real_person():

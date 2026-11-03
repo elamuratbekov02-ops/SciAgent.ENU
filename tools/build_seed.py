@@ -19,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from anonymize_seed import anonymize  # noqa: E402
 from app.catalog import attrs_from_block, route  # noqa: E402
 from app.form_parser import read_blocks, schema_only  # noqa: E402
 from app.names import parse_people, same_person, split_authors_supervisor, translit  # noqa: E402
@@ -412,6 +413,7 @@ def main(path: str) -> None:
             ],
         },
     }
+    seed = anonymize(seed)
     (ROOT / "data" / "seed.json").write_text(json.dumps(seed, ensure_ascii=False, indent=1), encoding="utf-8")
     (ROOT / "data" / "form_schema.json").write_text(json.dumps(schema, ensure_ascii=False, indent=1), encoding="utf-8")
 

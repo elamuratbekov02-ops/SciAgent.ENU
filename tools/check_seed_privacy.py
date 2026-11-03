@@ -1,7 +1,7 @@
 """Демо-дерек ережесін тексереді. Шығыста аттар емес, тек сандар көрсетіледі.
 
 Ереже: есептегі телефон мен email қосылмайды; нақты адамға жасанды дәреже мен топ тағылмайды;
-ойдан шығарылған жарияланымның атауы «[Пример]» деп басталады.
+ойдан шығарылған жарияланымның атауы «[Пример]» деп басталады; білім алушы шартты атпен көрсетіледі.
 
 Қолданылуы:  python tools/check_seed_privacy.py "<есеп.xlsx>"
 """
@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from anonymize_seed import ALREADY_HIDDEN, hidden_people  # noqa: E402
 from app.form_parser import read_blocks  # noqa: E402
 
 
@@ -59,6 +60,10 @@ def main(path: str) -> int:
     tagged = sum(1 for r in seed["records"] if r["attrs"].get("coauthor_kz") or r["attrs"].get("coauthor_foreign"))
     print("вымышленные пометки соавторов:", tagged)
     failures += tagged
+
+    named = [p for p in hidden_people(seed) if not ALREADY_HIDDEN.match(p["display_name"])]
+    print("обучающиеся под настоящим именем:", len(named))
+    failures += len(named)
     return 1 if failures else 0
 
 
